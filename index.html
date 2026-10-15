@@ -1,0 +1,1271 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DJI Mic Mini מדריך שטח</title>
+<meta name="description" content="מדריך שטח בעברית ל-DJI Mic Mini: חיבור לטלפון, למצלמה ולמחשב, כל כפתור וכל נורה, Mono מול Stereo ותיקון קול שיוצא רק באוזן אחת ב-CapCut.">
+<meta property="og:title" content="DJI Mic Mini מדריך שטח">
+<meta property="og:description" content="לחבר, להקליט, לתקן. כל הכפתורים, הנורות ומצבי ההקלטה, עם תמונות אמיתיות של הערכה.">
+<meta property="og:image" content="https://orisamuel.github.io/dji-mic-mini-guide/img/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#E8EBEE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1012" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' rx='8' fill='%2318191C'/%3E%3Ccircle cx='22' cy='10' r='3' fill='%23EE5A24'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&family=Karantina:wght@400;700&display=swap">
+<style>
+/* Layout: a single field-card column on phones with a thumb tab bar; on desktop a product stage beside the copy and two-column tools. */
+:root{
+  --bg:#E8EBEE;          /* studio sweep grey, cool like the graphite plastic */
+  --stage:#F7F8F9;
+  --surface:#FFFFFF;
+  --ink:#15171A;
+  --muted:#59616B;
+  --line:#D2D7DD;
+  --accent:#E8521D;      /* the orange index marks on the receiver dial */
+  --accent-ink:#FFFFFF;
+  --accent-soft:#FBE4DA;
+  --chip:#F1F3F5;
+  --shadow:rgba(20,24,30,.22);
+
+  --led-green:#1FCB62;
+  --led-cyan:#19D3EA;
+  --led-blue:#2F7BFF;
+  --led-red:#F23B3B;
+  --led-yellow:#F7C61B;
+  --led-off:#A3AAB3;
+
+  --mock-bg:#1B1C1F;
+  --mock-panel:#25262A;
+  --mock-line:#34363B;
+  --mock-ink:#E9E9EC;
+  --mock-muted:#9A9CA3;
+  --mock-accent:#20C4D8;
+
+  --font-display:'Karantina','Heebo','Arial Hebrew',sans-serif;
+  --font-body:'IBM Plex Sans Hebrew','Segoe UI','Arial Hebrew',Arial,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,'Cascadia Mono',Consolas,monospace;
+
+  --r-lg:24px;
+  --r-md:16px;
+  --r-sm:10px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1012; --stage:#1A1D21; --surface:#16191C; --ink:#ECEFF2; --muted:#9AA3AD; --line:#2A2F35;
+    --accent:#FF6A33; --accent-ink:#160A04; --accent-soft:#3A1D10; --chip:#1F2327; --shadow:rgba(0,0,0,.55);
+    --led-off:#4A525B;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1012; --stage:#1A1D21; --surface:#16191C; --ink:#ECEFF2; --muted:#9AA3AD; --line:#2A2F35;
+  --accent:#FF6A33; --accent-ink:#160A04; --accent-soft:#3A1D10; --chip:#1F2327; --shadow:rgba(0,0,0,.55);
+  --led-off:#4A525B;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.62 var(--font-body);padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2.5px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1140px;margin-inline:auto;padding-inline:16px}
+.mono{font-family:var(--font-mono);letter-spacing:.02em}
+.ltr{direction:ltr;unicode-bidi:isolate}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- type ---------- */
+h1,h2{font-family:var(--font-display);font-weight:700;text-wrap:balance;margin:0}
+h2{font-size:clamp(50px,12vw,80px);line-height:.9;letter-spacing:.005em}
+h3{font-size:19px;line-height:1.3;margin:0;font-weight:700;text-wrap:balance}
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--accent);font-weight:600;font-size:14px;margin:0 0 6px}
+.eyebrow .mono{font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 8px;letter-spacing:.08em}
+.intro{color:var(--muted);max-width:60ch;margin:12px 0 0;font-size:17px}
+p{margin:0}
+
+/* ---------- top bar ---------- */
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:14px}
+.brand{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;text-decoration:none}
+.brand i{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.codes{font-size:11px;color:var(--muted);display:none;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+@media (min-width:600px){.codes{display:flex}}
+.topnav{display:none}
+
+/* ---------- hero ---------- */
+.hero{display:grid;gap:18px;padding-block:8px 36px}
+.hero h1{font-size:clamp(96px,30vw,200px);line-height:.8;letter-spacing:-.005em;margin-top:6px;text-align:right}
+.hero h1 span{display:block}
+.hero h1 .mini{color:var(--accent)}
+.lede{font-size:18px;line-height:1.55;max-width:34ch;margin-top:14px}
+.facts{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:14px;color:var(--muted);font-size:14px}
+.facts b{color:var(--ink);font-family:var(--font-mono);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:10px 18px;border-radius:999px;border:1.5px solid var(--ink);text-decoration:none;font-weight:600;font-size:15px;background:transparent;cursor:pointer;transition:transform .15s ease, background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn .arr{font-family:var(--font-mono)}
+
+.stage{position:relative;aspect-ratio:10/8.4;max-width:100%;border-radius:var(--r-lg);background:
+  radial-gradient(70% 55% at 50% 38%, var(--stage) 0%, transparent 72%),
+  linear-gradient(180deg, var(--stage) 0%, var(--bg) 100%);
+  overflow:hidden;isolation:isolate}
+.stage .floor{position:absolute;left:8%;right:8%;bottom:7%;height:14%;border-radius:50%;background:radial-gradient(closest-side,var(--shadow),transparent);filter:blur(6px);z-index:0}
+.stage figure{position:absolute;margin:0;z-index:1;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.stage img{filter:drop-shadow(0 22px 24px var(--shadow))}
+.stage .rx{width:66%;left:17%;top:9%;animation-delay:.05s}
+.stage .tx1{width:31%;left:3%;top:49%;transform:rotate(-9deg);animation-delay:.18s}
+.stage .tx2{width:28%;left:69%;top:45%;transform:rotate(8deg);animation-delay:.28s}
+.stage .tag{position:absolute;font:600 11px var(--font-mono);letter-spacing:.08em;color:var(--muted);z-index:2;direction:ltr}
+.stage .t-rx{left:17%;top:5%}
+.stage .t-tx1{left:6%;bottom:6%}
+.stage .t-tx2{right:6%;bottom:13%}
+@keyframes rise{from{translate:0 18px}to{translate:0 0}}
+.glow{position:absolute;width:2.2%;aspect-ratio:1;border-radius:50%;background:var(--led-green);transform:translate(-50%,-50%);box-shadow:0 0 6px 2px var(--led-green);animation:breathe 2.6s ease-in-out 1s infinite both}
+@keyframes breathe{0%,100%{opacity:.95}50%{opacity:.55}}
+
+/* ---------- sections ---------- */
+section{padding-block:56px;scroll-margin-top:16px;border-top:1px solid var(--line)}
+.head{margin-bottom:26px}
+
+/* ---------- wizard ---------- */
+.wizard{display:grid;gap:22px}
+.q{border:0;margin:0;padding:0;min-width:0}
+.q legend{font-weight:700;font-size:15px;margin-bottom:10px;padding:0;display:flex;gap:8px;align-items:baseline}
+.q legend .mono{font-size:11px;color:var(--muted)}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.opt span{display:inline-flex;align-items:center;min-height:44px;padding:9px 16px;border-radius:12px;background:var(--surface);border:1.5px solid var(--line);font-weight:500;font-size:15px;cursor:pointer;transition:border-color .15s, background .15s}
+.opt input:checked + span{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.opt input:focus-visible + span{outline:2.5px solid var(--accent);outline-offset:2px}
+.opt span small{font-size:12px;opacity:.7;margin-inline-start:6px}
+
+.result{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;min-width:0}
+.result .banner{position:relative;height:170px;background:var(--chip)}
+.result .banner img{width:100%;height:100%;object-fit:cover}
+.result .banner.cut img{object-fit:contain;padding:18px}
+.result .banner .cap{position:absolute;inset-inline-start:12px;bottom:12px;background:var(--surface);color:var(--ink);padding:5px 12px;border-radius:999px;font-weight:600;font-size:14px;box-shadow:0 4px 16px var(--shadow)}
+.result .body{padding:18px 18px 20px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.badge{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;background:var(--chip);font-size:13px;font-weight:500}
+.badge b{font-family:var(--font-mono);font-weight:600}
+.dot{display:inline-block;vertical-align:-1px;width:9px;height:9px;border-radius:50%;background:var(--c,var(--led-off));box-shadow:0 0 6px var(--c,transparent);flex:none}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;gap:4px}
+.steps li{counter-increment:s}
+.steps label{position:relative;display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start;padding:12px 10px;border-radius:12px;cursor:pointer;transition:background .15s}
+.steps label:hover{background:var(--chip)}
+.steps input{position:absolute;opacity:0;pointer-events:none}
+.steps .n{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font:600 13px var(--font-mono);color:var(--muted);transition:all .15s}
+.steps .n::before{content:counter(s)}
+.steps input:checked ~ .n{background:var(--led-green);border-color:var(--led-green);color:#06210F}
+.steps input:checked ~ .n::before{content:'✓'}
+.steps input:checked ~ .t{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
+.steps input:focus-visible ~ .n{outline:2.5px solid var(--accent);outline-offset:2px}
+.steps .t{min-width:0;padding-top:3px}
+.steps .t a{color:var(--accent);font-weight:600}
+.steps .note{display:block;color:var(--muted);font-size:14px;margin-top:4px}
+.result .foot{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;padding-top:14px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.link-btn{background:none;border:0;padding:6px 0;color:var(--accent);font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- parts ---------- */
+.tabs{display:flex;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:5px;width:max-content;max-width:100%;overflow-x:auto;margin-bottom:22px}
+.tabs button{border:0;background:transparent;padding:9px 16px;border-radius:10px;font-weight:600;cursor:pointer;white-space:nowrap;min-height:42px;color:var(--muted)}
+.tabs button .mono{font-size:11px;margin-inline-start:6px;opacity:.8}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.parts{display:grid;gap:22px}
+.fig{position:relative;margin:0 auto;width:100%;max-width:520px;padding:6% 7%;background:radial-gradient(60% 60% at 50% 45%, var(--stage), transparent 75%);border-radius:var(--r-lg)}
+.fig .inner{position:relative}
+.fig img{width:100%;height:auto;filter:drop-shadow(0 18px 22px var(--shadow))}
+.pin{position:absolute;transform:translate(-50%,-50%);width:32px;height:32px;border-radius:50%;border:2.5px solid var(--surface);background:var(--accent);color:var(--accent-ink);font:600 13px var(--font-mono);display:grid;place-items:center;cursor:pointer;padding:0;box-shadow:0 4px 14px var(--shadow);z-index:2;transition:transform .15s}
+.pin::after{content:'';position:absolute;inset:-7px;border-radius:50%;border:2px solid var(--accent);opacity:0;animation:ping 2.4s ease-out infinite}
+.pin[aria-pressed="true"]{transform:translate(-50%,-50%) scale(1.18);background:var(--ink);color:var(--bg)}
+.pin[aria-pressed="true"]::after{animation:none}
+@keyframes ping{0%{opacity:.7;transform:scale(.7)}80%,100%{opacity:0;transform:scale(1.35)}}
+.case-led{position:absolute;width:2.3%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);background:transparent;z-index:1}
+.case-led.on{background:var(--led-green);box-shadow:0 0 8px 2px var(--led-green)}
+.case-led.blink{background:var(--led-green);box-shadow:0 0 8px 2px var(--led-green);animation:b-slow 1.6s steps(1,end) infinite}
+.plist{list-style:none;margin:0;padding:0;display:grid;gap:8px;min-width:0}
+.plist li{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r-md);padding:14px 16px;cursor:pointer;display:grid;grid-template-columns:30px 1fr;gap:12px;transition:border-color .15s, background .15s}
+.plist li[aria-current="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.plist .num{width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:600 12px var(--font-mono)}
+.plist .where{font-size:13px;color:var(--muted);font-weight:500;margin-inline-start:6px}
+.plist p{color:var(--muted);font-size:15px;margin-top:4px}
+.acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.act{display:inline-flex;gap:6px;align-items:center;font-size:13.5px;background:var(--chip);border-radius:8px;padding:4px 9px}
+.act b{font-family:var(--font-mono);font-size:11.5px;font-weight:600;color:var(--accent);letter-spacing:.03em}
+.pnote{margin-top:12px;font-size:15px;color:var(--muted);background:var(--chip);border-radius:var(--r-md);padding:12px 14px}
+.levels{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.levels button{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font:500 13px var(--font-mono);cursor:pointer;min-height:36px}
+.levels button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.open-shot{margin-top:14px;border-radius:var(--r-md);overflow:hidden;background:#fff}
+.open-shot figcaption{font-size:14px;color:var(--muted);padding:10px 14px;background:var(--surface)}
+
+/* ---------- wear ---------- */
+.wear{display:grid;gap:20px}
+.wear .photo{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/4.2;max-width:100%}
+.wear .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 35%}
+.tips{display:grid;gap:0;list-style:none;margin:0;padding:0}
+.tips li{padding:16px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:14px}
+.tips li:last-child{border-bottom:0}
+.tips .k{font:600 12px var(--font-mono);color:var(--accent);padding-top:3px;min-width:58px;letter-spacing:.06em}
+.tips p{color:var(--muted);margin-top:3px}
+.tips img{width:64px;height:64px;object-fit:contain;float:inline-end;margin-inline-start:10px}
+
+/* ---------- leds ---------- */
+.filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.filter button{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 15px;font-weight:600;cursor:pointer;min-height:40px}
+.filter button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ledgrid{display:grid;gap:16px}
+.ledcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:6px 16px 10px;min-width:0}
+.ledcard h3{display:flex;align-items:center;gap:10px;padding:12px 0 6px}
+.ledcard h3 .mono{font-size:11px;color:var(--muted);font-weight:500}
+.grp{font-size:12px;color:var(--muted);font-weight:600;padding:12px 0 2px;letter-spacing:.02em}
+.row{display:grid;grid-template-columns:34px 1fr;gap:4px 10px;align-items:start;padding:10px 0;border-top:1px solid var(--line)}
+.grp + .row{border-top:0}
+.row .what{font-weight:600;font-size:15px}
+.row .what small{font:500 11px var(--font-mono);color:var(--muted);margin-inline-start:6px}
+.row .means{grid-column:2;color:var(--muted);font-size:15px}
+.ledwrap{display:grid;place-items:center;height:26px}
+.led{--c:var(--led-green);--c2:var(--led-blue);width:14px;height:14px;border-radius:50%;color:var(--c);background:currentColor;box-shadow:0 0 0 3px color-mix(in srgb,currentColor 22%,transparent),0 0 12px currentColor}
+.led.off{background:transparent;box-shadow:none;border:2px solid var(--led-off)}
+.led.slow{animation:b-slow 2s steps(1,end) infinite}
+.led.fast{animation:b-slow .5s steps(1,end) infinite}
+.led.alt{animation:b-alt 1s steps(1,end) infinite}
+.led.x2{animation:b-x2 2.6s linear infinite}
+.led.x3{animation:b-x3 2.6s linear infinite}
+.led.x4{animation:b-x4 2.6s linear infinite}
+@keyframes b-slow{0%{opacity:1}50%{opacity:.12}}
+@keyframes b-alt{0%{color:var(--c)}50%{color:var(--c2)}}
+@keyframes b-x2{0%,10%{opacity:1}10.01%,20%{opacity:.12}20.01%,30%{opacity:1}30.01%,100%{opacity:.12}}
+@keyframes b-x3{0%,10%{opacity:1}10.01%,20%{opacity:.12}20.01%,30%{opacity:1}30.01%,40%{opacity:.12}40.01%,50%{opacity:1}50.01%,100%{opacity:.12}}
+@keyframes b-x4{0%,10%{opacity:1}10.01%,20%{opacity:.12}20.01%,30%{opacity:1}30.01%,40%{opacity:.12}40.01%,50%{opacity:1}50.01%,60%{opacity:.12}60.01%,70%{opacity:1}70.01%,100%{opacity:.12}}
+.dots4{display:flex;gap:5px;direction:ltr}
+.dots4 i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--led-off)}
+.dots4 i.on{background:var(--led-green);border-color:var(--led-green);box-shadow:0 0 6px var(--led-green)}
+.dots4 i.bl{background:var(--led-green);border-color:var(--led-green);animation:b-slow 1.4s steps(1,end) infinite}
+.row.case{grid-template-columns:62px 1fr}
+
+/* ---------- sound lab ---------- */
+.lab{display:grid;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px}
+.seg{display:flex;background:var(--chip);border-radius:14px;padding:4px;gap:4px;max-width:100%;overflow-x:auto}
+.seg button{flex:1;border:0;background:transparent;padding:10px 12px;border-radius:10px;font:600 14px var(--font-mono);cursor:pointer;white-space:nowrap;min-height:44px;display:inline-flex;gap:8px;align-items:center;justify-content:center;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 2px 10px var(--shadow)}
+.mode-text h3{font-size:22px;display:flex;align-items:center;gap:10px}
+.mode-text p{color:var(--muted);margin-top:8px}
+.mode-text dl{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;margin:14px 0 0;font-size:15px}
+.mode-text dt{font-weight:700}
+.mode-text dd{margin:0;color:var(--muted);min-width:0}
+.play-row{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.play{background:var(--accent);color:var(--accent-ink);border:0;border-radius:999px;min-height:48px;padding:10px 20px 10px 22px;font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:10px;cursor:pointer}
+.play svg{width:16px;height:16px}
+.switch{display:inline-flex;align-items:center;gap:10px;font-size:15px;cursor:pointer;min-height:44px}
+.switch input{width:20px;height:20px;accent-color:var(--accent)}
+.hp{font-size:13px;color:var(--muted)}
+.chan{display:grid;grid-template-columns:1fr 1fr;gap:10px;direction:ltr}
+.ch{background:var(--chip);border-radius:var(--r-md);padding:12px;min-width:0}
+.ch .lbl{display:flex;justify-content:space-between;align-items:baseline;font:600 12px var(--font-mono);letter-spacing:.06em;color:var(--muted)}
+.ch .lbl span:last-child{font-family:var(--font-body);letter-spacing:0;font-weight:500}
+.meter{height:12px;border-radius:7px;background:var(--line);overflow:hidden;margin:10px 0}
+.meter i{display:block;height:100%;width:calc(var(--lvl,0) * 100%);background:linear-gradient(90deg,var(--led-green) 0%,var(--led-green) 60%,var(--led-yellow) 85%,var(--led-red) 100%);border-radius:7px;transition:width .08s linear}
+.srcs{display:flex;flex-wrap:wrap;gap:5px;min-height:26px}
+.src{font:600 11.5px var(--font-mono);padding:3px 8px;border-radius:6px;background:var(--surface);border:1px solid var(--line)}
+.src.s1{border-color:var(--led-cyan)}
+.src.s2{border-color:var(--accent)}
+.src.quiet{opacity:.55}
+.silent{font-size:12px;color:var(--led-red);font-weight:600;direction:rtl}
+.warn{display:flex;gap:10px;align-items:flex-start;background:var(--accent-soft);border-radius:var(--r-md);padding:12px 14px;font-size:15px}
+.warn b{color:var(--accent)}
+
+/* ---------- capcut ---------- */
+.cc{display:grid;gap:16px}
+.cc-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px;min-width:0}
+.cc-card .tag{display:inline-block;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--chip);margin-bottom:10px}
+.cc-card h3{font-size:21px}
+.cc-card ol{margin:14px 0 0;padding-inline-start:22px;display:grid;gap:10px}
+.cc-card ol li::marker{font-family:var(--font-mono);font-weight:600;color:var(--accent)}
+.cc-card ol li{padding-inline-start:4px}
+.cc-card .m{font:500 13px var(--font-mono);background:var(--chip);border-radius:6px;padding:1px 7px;white-space:nowrap;direction:ltr;unicode-bidi:isolate}
+.side{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.side button{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;font-weight:600;cursor:pointer;min-height:40px}
+.side button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.mock{direction:ltr;background:var(--mock-bg);color:var(--mock-ink);border-radius:14px;padding:12px;margin-top:14px;font:13px/1.4 'Segoe UI',system-ui,sans-serif;border:1px solid var(--mock-line)}
+.mock .bar{display:flex;gap:14px;border-bottom:1px solid var(--mock-line);padding-bottom:8px;margin-bottom:10px;color:var(--mock-muted);font-size:12.5px}
+.mock .bar .on{color:var(--mock-ink);border-bottom:2px solid var(--mock-accent);padding-bottom:6px;margin-bottom:-9px}
+.mock .r{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px 4px}
+.mock .slider{flex:1;max-width:150px;height:4px;border-radius:3px;background:var(--mock-line);position:relative}
+.mock .slider::after{content:'';position:absolute;left:62%;top:-4px;width:12px;height:12px;border-radius:50%;background:var(--mock-ink)}
+.mock .chk{display:inline-flex;align-items:center;gap:8px}
+.mock .chk i{width:15px;height:15px;border-radius:4px;background:var(--mock-accent);display:grid;place-items:center;color:var(--mock-bg);font-style:normal;font-size:11px;font-weight:800}
+.mock .sel{background:var(--mock-panel);border:1px solid var(--mock-accent);border-radius:7px;padding:6px 10px;display:flex;justify-content:space-between;gap:10px;min-width:0;flex:1;max-width:220px}
+.mock .sel span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mock .hint{color:var(--mock-muted);font-size:11.5px;text-align:right;padding-top:4px}
+.tl{display:grid;gap:6px}
+.trk{display:grid;grid-template-columns:58px 1fr;gap:8px;align-items:center}
+.trk .nm{font-size:11px;color:var(--mock-muted)}
+.trk .clip{height:30px;border-radius:6px;background:var(--mock-panel);border:1px solid var(--mock-line);display:flex;align-items:center;padding:0 8px;font-size:11.5px;gap:6px;overflow:hidden;white-space:nowrap}
+.trk .clip.v{background:repeating-linear-gradient(90deg,#3a3b40 0 28px,#2e2f33 28px 30px);color:var(--mock-muted)}
+.trk .clip.a1{background:linear-gradient(0deg,rgba(32,196,216,.18),rgba(32,196,216,.18)),var(--mock-panel);border-color:var(--mock-accent)}
+.trk .clip.a2{background:linear-gradient(0deg,rgba(255,106,51,.18),rgba(255,106,51,.18)),var(--mock-panel);border-color:#FF6A33}
+.small{font-size:14px;color:var(--muted)}
+.mock-cap{font-size:12px;color:var(--muted);margin-top:6px}
+
+/* ---------- troubleshooting ---------- */
+.search{position:relative;max-width:520px;margin-bottom:16px}
+.search input{width:100%;min-height:50px;border-radius:14px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:500 16px var(--font-body);padding:10px 44px 10px 14px}
+.search input:focus{outline:none;border-color:var(--accent)}
+.search svg{position:absolute;right:14px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:var(--muted)}
+.qs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.qs button{border:0;background:var(--chip);border-radius:999px;padding:6px 12px;font-size:14px;cursor:pointer;min-height:36px}
+.faq{display:grid;gap:8px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:0 16px}
+.faq summary{cursor:pointer;list-style:none;padding:16px 0;font-weight:700;font-size:16.5px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';font:500 22px var(--font-mono);color:var(--accent);flex:none;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{padding:0 0 16px;color:var(--muted);display:grid;gap:8px}
+.faq .a b{color:var(--ink)}
+.faq .a a{color:var(--accent);font-weight:600}
+.empty{color:var(--muted);padding:12px 0}
+
+/* ---------- box ---------- */
+.boxgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:12px;display:grid;gap:8px;margin:0}
+.item .ph{position:relative;aspect-ratio:1;background:radial-gradient(60% 60% at 50% 50%,var(--stage),transparent 80%);border-radius:12px}
+.item .ph img{position:absolute;inset:12%;width:76%;height:76%;object-fit:contain;filter:drop-shadow(0 10px 12px var(--shadow))}
+.item figcaption{display:flex;justify-content:space-between;gap:8px;align-items:baseline;font-size:14px;font-weight:600;line-height:1.35}
+.item figcaption .mono{color:var(--accent);font-size:13px;flex:none}
+.boxnote{margin-top:14px}
+
+/* ---------- specs ---------- */
+.big{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.big div{background:var(--surface);padding:18px 16px}
+.big b{display:block;font:700 54px/.9 var(--font-display);font-variant-numeric:tabular-nums;direction:ltr;text-align:right}
+.big b small{font:600 15px var(--font-mono);color:var(--accent);margin-left:4px}
+.big span{font-size:14px;color:var(--muted)}
+.spec{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);margin:18px 0 0;font-size:15px}
+.spec dt,.spec dd{padding:11px 0;border-bottom:1px solid var(--line);margin:0}
+.spec dt{color:var(--muted);padding-left:14px}
+.spec dd{font-family:var(--font-mono);font-weight:500;font-size:14px;text-align:left;direction:ltr;font-variant-numeric:tabular-nums}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding-block:40px 30px;color:var(--muted);font-size:14px}
+footer h2{font-size:34px;color:var(--ink)}
+footer ul{list-style:none;padding:0;margin:12px 0 18px;display:grid;gap:6px}
+footer a{color:var(--ink);text-underline-offset:3px}
+
+/* ---------- bottom tab bar (phones) ---------- */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:repeat(5,1fr);background:color-mix(in srgb,var(--surface) 90%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:4px 4px calc(4px + env(safe-area-inset-bottom,0px))}
+.tabbar a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0 4px;text-decoration:none;color:var(--muted);font-size:11.5px;font-weight:600;min-height:52px;border-radius:12px}
+.tabbar svg{width:22px;height:22px}
+.tabbar a[aria-current="true"]{color:var(--accent)}
+
+@media (min-width:720px){
+  .wrap{padding-inline:28px}
+  .boxgrid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .big{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .chan{gap:14px}
+}
+@media (min-width:960px){
+  body{padding-bottom:0}
+  .tabbar{display:none}
+  .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+  .codes{display:none}
+  .topnav{display:flex;gap:4px}
+  .topnav a{text-decoration:none;font-size:14px;font-weight:600;color:var(--muted);padding:8px 12px;border-radius:999px}
+  .topnav a:hover{color:var(--ink)}
+  .topnav a[aria-current="true"]{color:var(--ink);background:var(--surface)}
+  section{scroll-margin-top:76px;padding-block:80px}
+  .hero{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);align-items:center;gap:40px;padding-block:30px 60px}
+  .wizard{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:start;gap:36px}
+  .wizard .result{position:sticky;top:84px}
+  .parts{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:start;gap:36px}
+  .wear{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:44px}
+  .ledgrid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+  .lab{grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding:26px;gap:28px;align-items:start}
+  .cc{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+  .boxgrid{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .spec{max-width:680px}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="top wrap">
+  <a class="brand" href="#top"><i></i>מדריך שטח <span class="mono ltr">DJI Mic Mini</span></a>
+  <div class="codes mono ltr"><span>TX DMMT01</span><span>RX DMMR01</span><span>CASE DMMC01</span></div>
+  <nav class="topnav" aria-label="ניווט">
+    <a href="#setup">הכנה לצילום</a>
+    <a href="#parts">חלקים</a>
+    <a href="#leds">נורות</a>
+    <a href="#sound">ערוצים</a>
+    <a href="#capcut">CapCut</a>
+    <a href="#fix">תקלות</a>
+    <a href="#box">בקופסה</a>
+  </nav>
+</div>
+
+<main id="top">
+<div class="wrap">
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div>
+    <p class="eyebrow">מדריך שטח בעברית</p>
+    <h1 class="ltr" dir="ltr"><span>DJI MIC</span><span class="mini">MINI</span></h1>
+    <p class="lede">שני משדרים, מקלט ומארז. איך מחברים, מה אומרת כל נורה ומה עושים כשהקול יוצא רק מצד אחד.</p>
+    <p class="facts"><span><b class="ltr">10 g</b> משקל משדר</span><span><b class="ltr">400 m</b> טווח בשטח פתוח</span><span><b class="ltr">48 h</b> עם המארז</span></p>
+    <div class="cta">
+      <a class="btn primary" href="#setup">מכינים צילום <span class="arr">←</span></a>
+      <a class="btn" href="#leds">מה אומרת הנורה</a>
+      <a class="btn" href="#capcut">קול רק בצד אחד</a>
+    </div>
+  </div>
+  <div class="stage" aria-label="הערכה: מקלט ושני משדרים">
+    <div class="floor"></div>
+    <figure class="rx">
+      <img src="img/rx.webp" width="1100" height="723" alt="המקלט של DJI Mic Mini, עם הגלגלת ונוריות 1 ו-2" fetchpriority="high">
+      <span class="glow" style="left:74.6%;top:15.1%"></span>
+      <span class="glow" style="left:84.7%;top:15.1%"></span>
+    </figure>
+    <figure class="tx1"><img src="img/tx.webp" width="1100" height="1078" alt="משדר 1"></figure>
+    <figure class="tx2"><img src="img/tx.webp" width="1100" height="1078" alt="משדר 2"></figure>
+    <span class="tag t-rx">RX</span>
+    <span class="tag t-tx1">TX 1</span>
+    <span class="tag t-tx2">TX 2</span>
+  </div>
+</header>
+
+<!-- ================= SETUP WIZARD ================= -->
+<section id="setup">
+  <div class="head">
+    <p class="eyebrow">לפני שמצלמים</p>
+    <h2>מה מצלמים היום?</h2>
+    <p class="intro">שלוש בחירות, ומקבלים את השלבים לפי הסדר. אפשר לסמן כל שלב תוך כדי עבודה.</p>
+  </div>
+  <div class="wizard">
+    <form id="wiz" class="qs-col" onsubmit="return false" style="display:grid;gap:22px">
+      <fieldset class="q">
+        <legend>מצלמים עם</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="dev" id="dev-phone" value="phone" checked><span>טלפון USB-C</span></label>
+          <label class="opt"><input type="radio" name="dev" id="dev-lightning" value="lightning"><span>אייפון עם Lightning</span></label>
+          <label class="opt"><input type="radio" name="dev" id="dev-camera" value="camera"><span>מצלמה</span></label>
+          <label class="opt"><input type="radio" name="dev" id="dev-computer" value="computer"><span>מחשב</span></label>
+          <label class="opt"><input type="radio" name="dev" id="dev-osmo" value="osmo"><span>Osmo של DJI</span></label>
+        </div>
+      </fieldset>
+      <fieldset class="q">
+        <legend>מי מדבר</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="who" id="who-one" value="one" checked><span>דובר אחד</span></label>
+          <label class="opt"><input type="radio" name="who" id="who-quick" value="quick"><span>שניים, עריכה בטלפון</span></label>
+          <label class="opt"><input type="radio" name="who" id="who-desk" value="desk"><span>שניים, עריכה במחשב</span></label>
+        </div>
+      </fieldset>
+      <fieldset class="q">
+        <legend>איפה</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="env" id="env-quiet" value="quiet" checked><span>בפנים, שקט</span></label>
+          <label class="opt"><input type="radio" name="env" id="env-out" value="out"><span>בחוץ</span></label>
+          <label class="opt"><input type="radio" name="env" id="env-noisy" value="noisy"><span>מקום רועש</span></label>
+        </div>
+      </fieldset>
+      <p class="small">המצב נשמר בדפדפן הזה, אז בפעם הבאה זה יפתח איפה שעצרתם.</p>
+    </form>
+    <article class="result" aria-live="polite">
+      <div class="banner" id="w-banner"><img id="w-img" src="img/vlog.webp" alt="" width="1400" height="560"><span class="cap" id="w-cap">טלפון USB-C</span></div>
+      <div class="body">
+        <div class="badges" id="w-badges"></div>
+        <ol class="steps" id="w-steps"></ol>
+        <div class="foot"><span id="w-count">0 מתוך 0 שלבים</span><button type="button" class="link-btn" id="w-reset">ניקוי הסימונים</button></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= PARTS ================= -->
+<section id="parts">
+  <div class="head">
+    <p class="eyebrow">הכירו את הציוד</p>
+    <h2>כל כפתור, כל נורה</h2>
+    <p class="intro">לוחצים על נקודה בתמונה או על שורה ברשימה. רוב הכפתורים יושבים בצדדים, אז הנקודות על הקצוות.</p>
+  </div>
+  <div class="tabs" role="tablist" aria-label="בחירת רכיב">
+    <button role="tab" id="tab-tx" aria-selected="true" aria-controls="panel-parts" data-part="tx">משדר<span class="mono">TX</span></button>
+    <button role="tab" id="tab-rx" aria-selected="false" aria-controls="panel-parts" data-part="rx">מקלט<span class="mono">RX</span></button>
+    <button role="tab" id="tab-case" aria-selected="false" aria-controls="panel-parts" data-part="case">מארז טעינה<span class="mono">CASE</span></button>
+  </div>
+  <div class="parts" id="panel-parts" role="tabpanel">
+    <div>
+      <div class="fig"><div class="inner" id="p-fig"></div></div>
+      <div id="p-extra"></div>
+    </div>
+    <div>
+      <ol class="plist" id="p-list"></ol>
+      <p class="pnote" id="p-note"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WEAR ================= -->
+<section id="wear">
+  <div class="wear">
+    <div class="photo"><img src="img/collar.webp" width="1280" height="1280" alt="משדר DJI Mic Mini מוצמד לצווארון של חולצה" loading="lazy"></div>
+    <div>
+      <p class="eyebrow">על הבגד</p>
+      <h2>איפה שמים את המשדר</h2>
+      <ul class="tips">
+        <li><span class="k mono">PLACE</span><div><h3>באמצע החזה העליון</h3><p>בערך שתי כפות יד מתחת לסנטר. קרוב מדי נשמעות נשימות, רחוק מדי נכנס החדר. המיקרופון קולט לכל הכיוונים, אז לא צריך לכוון אותו לפה.</p></div></li>
+        <li><span class="k mono">MAGNET</span><div><h3>מגנט או קליפס</h3><p>בחולצה דקה: המגנט מבפנים והמשדר מבחוץ, והוא לא מושך את הבד למטה. בצווארון או בבד עבה: הקליפס. בערכה יש שני מגנטים.</p></div></li>
+        <li><span class="k mono">WIND</span><div><img src="img/windscreen-gray.webp" width="640" height="584" alt="" loading="lazy"><h3>בחוץ תמיד עם ספוג רוח</h3><p>סינון הרעשים לא מבטל רוח. את הספוג אפשר להשאיר על המשדר גם כשמחזירים אותו למארז.</p></div></li>
+        <li><span class="k mono">CLOTH</span><div><h3>לא מתחת לבגד, לא ליד שרשרת</h3><p>בד שמתחכך במיקרופון נשמע כמו רשרוש, ושרשרת או רוכסן נשמעים כמו נקישות. עדיף משדר גלוי וקול נקי.</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LEDS ================= -->
+<section id="leds">
+  <div class="head">
+    <p class="eyebrow">שפת הנורות</p>
+    <h2>מה הנורה אומרת?</h2>
+    <p class="intro">הצבעים וההבהובים כאן מונפשים בדיוק כמו במכשיר. אותו צבע יכול להגיד דברים שונים במשדר ובמקלט, אז קודם בוחרים מכשיר.</p>
+  </div>
+  <div class="filter" role="group" aria-label="סינון לפי מכשיר">
+    <button type="button" aria-pressed="true" data-f="all">הכל</button>
+    <button type="button" aria-pressed="false" data-f="tx">משדר</button>
+    <button type="button" aria-pressed="false" data-f="rx">מקלט</button>
+    <button type="button" aria-pressed="false" data-f="case">מארז</button>
+  </div>
+  <div class="ledgrid">
+    <article class="ledcard" data-dev="tx">
+      <h3>משדר <span class="mono ltr">TX · STATUS LED</span></h3>
+      <div class="grp">חיבור</div>
+      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-green)"></i></div><div class="what">ירוק קבוע</div><div class="means">מחובר למקלט. הכל טוב.</div></div>
+      <div class="row"><div class="ledwrap"><i class="led slow" style="--c:var(--led-green)"></i></div><div class="what">ירוק מהבהב לאט</div><div class="means">לא מחובר למקלט. המקלט כבוי, רחוק, או שצריך לצמד מחדש.</div></div>
+      <div class="row"><div class="ledwrap"><i class="led alt" style="--c:var(--led-blue);--c2:var(--led-green)"></i></div><div class="what">כחול וירוק לסירוגין</div><div class="means">מחפש חיבור (צימוד), למקלט או ל-Bluetooth.</div></div>
+      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-blue)"></i></div><div class="what">כחול קבוע</div><div class="means">מחובר ישירות ב-Bluetooth לטלפון או ל-Osmo.</div></div>
+      <div class="row"><div class="ledwrap"><i class="led slow" style="--c:var(--led-blue)"></i></div><div class="what">כחול מהבהב לאט</div><div class="means">במצב Bluetooth, ואין מכשיר מחובר.</div></div>
+      <div class="grp">סוללה ועדכון</div>
+      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-red)"></i></div><div class="what">אדום קבוע</div><div class="means">פחות מ-10% סוללה. להחזיר למארז.</div></div>
+      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-yellow)"></i></div><div class="what">צהוב קבוע</div><div class="means">מתעדכנת קושחה. לא לכבות.</div></div>
+      <div class="grp">נורית שנייה, בצד השני</div>
+      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-yellow)"></i></div><div class="what">צהוב <small>NC</small></div><div class="means">סינון רעשים פעיל. כבויה = הסינון כבוי.</div></div>
+      <div class="grp">בזמן טעינה</div>
+      <div class="row"><div class="ledwrap"><i class="led slow" style="--c:var(--led-green)"></i></div><div class="what">הבהוב אחד לאט</div><div class="means">0 עד 25%</div></div>
+      <div class="row"><div class="ledwrap"><i class="led x2" style="--c:var(--led-green)"></i></div><div class="what">הבהוב כפול</div><div class="means">26 עד 50%</div></div>
+      <div class="row"><div class="ledwrap"><i class="led x3" style="--c:var(--led-green)"></i></div><div class="what">שלושה הבהובים</div><div class="means">51 עד 75%</div></div>
+      <div class="row"><div class="ledwrap"><i class="led x4" style="--c:var(--led-green)"></i></div><div class="what">ארבעה הבהובים</div><div class="means">76 עד 100%</div></div>
+      <div class="row"><div class="ledwrap"><i class="led off"></i></div><div class="what">כבויה</div><div class="means">טעון במלואו. בטעינה הצבע ירוק או כחול לפי המצב שבו המשדר עבד.</div></div>
+    </article>
+
+    <article class="ledcard" data-dev="rx">
+      <h3>מקלט <span class="mono ltr">RX</span></h3>
+      <div class="grp">נוריות 1 ו-2: מצב כל משדר</div>
+      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-green)"></i></div><div class="what">ירוק קבוע</div><div class="means">המשדר הזה מחובר.</div></div>
+      <div class="row"><div class="ledwrap"><i class="led off"></i></div><div class="what">כבויה</div><div class="means">המשדר הזה לא מחובר.</div></div>
+      <div class="row"><div class="ledwrap"><i class="led fast" style="--c:var(--led-green)"></i></div><div class="what">ירוק מהבהב מהר</div><div class="means">צימוד מתבצע.</div></div>
+      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-yellow)"></i></div><div class="what">צהוב קבוע</div><div class="means">סינון רעשים פעיל במשדר הזה.</div></div>
+      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-red)"></i></div><div class="what">אדום קבוע</div><div class="means">סוללת המשדר הזה מתחת ל-10%.</div></div>
+      <div class="grp">נורית המקלט: מצב הקלטה</div>
+      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-green)"></i></div><div class="what">ירוק קבוע</div><div class="means"><b>Mono</b> או <b>Safety Track</b>. לפי הצבע אי אפשר להבדיל ביניהם.</div></div>
+      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-cyan)"></i></div><div class="what">תכלת קבוע</div><div class="means"><b>Stereo</b>: כל משדר בערוץ נפרד.</div></div>
+      <div class="row"><div class="ledwrap"><i class="led slow" style="--c:var(--led-green)"></i></div><div class="what">ירוק או תכלת מהבהב לאט</div><div class="means">אין מכשיר מקליט מחובר: לא מזהה טלפון, מצלמה או מחשב.</div></div>
+      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-blue)"></i></div><div class="what">כחול קבוע</div><div class="means">מחובר ב-Bluetooth לאפליקציית DJI Mimo.</div></div>
+      <div class="row"><div class="ledwrap"><i class="led slow" style="--c:var(--led-blue)"></i></div><div class="what">כחול מהבהב לאט</div><div class="means">מוכן לחיבור Bluetooth, אין מכשיר מחובר.</div></div>
+      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-red)"></i></div><div class="what">אדום קבוע</div><div class="means">סוללת המקלט מתחת ל-10%.</div></div>
+      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-yellow)"></i></div><div class="what">צהוב קבוע</div><div class="means">מתעדכנת קושחה. לא לכבות.</div></div>
+      <div class="grp">בזמן טעינה</div>
+      <div class="row"><div class="ledwrap"><i class="led x2" style="--c:var(--led-green)"></i></div><div class="what">ירוק מהבהב 1 עד 4 פעמים</div><div class="means">כמו במשדר: הבהוב אחד עד 25%, ארבעה עד 100%. כבויה = מלא.</div></div>
+    </article>
+
+    <article class="ledcard" data-dev="case">
+      <h3>מארז <span class="mono ltr">4 LED</span></h3>
+      <div class="grp">רמת הסוללה של המארז</div>
+      <div class="row case"><div class="ledwrap"><span class="dots4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div><div class="what">ארבע דולקות</div><div class="means">76 עד 100%</div></div>
+      <div class="row case"><div class="ledwrap"><span class="dots4"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div><div class="what">שלוש</div><div class="means">51 עד 75%</div></div>
+      <div class="row case"><div class="ledwrap"><span class="dots4"><i class="on"></i><i class="on"></i><i></i><i></i></span></div><div class="what">שתיים</div><div class="means">26 עד 50%</div></div>
+      <div class="row case"><div class="ledwrap"><span class="dots4"><i class="on"></i><i></i><i></i><i></i></span></div><div class="what">אחת</div><div class="means">10 עד 25%</div></div>
+      <div class="row case"><div class="ledwrap"><span class="dots4"><i class="bl"></i><i></i><i></i><i></i></span></div><div class="what">אחת מהבהבת</div><div class="means">פחות מ-10%. לחבר לחשמל.</div></div>
+      <div class="grp">כשהמארז עצמו בטעינה</div>
+      <div class="row case"><div class="ledwrap"><span class="dots4"><i class="on"></i><i class="on"></i><i class="bl"></i><i></i></span></div><div class="what">הנורה האחרונה מהבהבת</div><div class="means">הנוריות הדולקות הן מה שכבר נטען. בדוגמה: 51 עד 75%.</div></div>
+      <div class="row case"><div class="ledwrap"><span class="dots4"><i></i><i></i><i></i><i></i></span></div><div class="what">כולן כבויות</div><div class="means">המארז טעון במלואו.</div></div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= SOUND LAB ================= -->
+<section id="sound">
+  <div class="head">
+    <p class="eyebrow">ערוצי שמע</p>
+    <h2 class="ltr" style="text-align:right">Mono, Stereo, Safety</h2>
+    <p class="intro">שמים אוזניות ולוחצים על השמעה. שני דוברים מדומים, ואפשר לשמוע איך כל מצב מחלק אותם בין האוזן השמאלית לימנית.</p>
+  </div>
+  <div class="lab">
+    <div style="display:grid;gap:18px;min-width:0">
+      <div class="seg" role="group" aria-label="מצב הקלטה">
+        <button type="button" data-mode="mono" aria-pressed="false"><span class="dot" style="--c:var(--led-green)"></span>MONO</button>
+        <button type="button" data-mode="stereo" aria-pressed="true"><span class="dot" style="--c:var(--led-cyan)"></span>STEREO</button>
+        <button type="button" data-mode="safety" aria-pressed="false"><span class="dot" style="--c:var(--led-green)"></span>SAFETY</button>
+      </div>
+      <div class="mode-text" id="m-text"></div>
+    </div>
+    <div style="display:grid;gap:14px;min-width:0">
+      <div class="play-row">
+        <button type="button" class="play" id="play" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path id="play-ico" d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg><span id="play-lbl">השמעת הדגמה</span></button>
+        <label class="switch"><input type="checkbox" id="tx2" checked> משדר 2 דלוק</label>
+      </div>
+      <p class="hp">עם אוזניות שומעים את ההבדל. ברמקול של טלפון הכל נשמע באמצע.</p>
+      <div class="chan" aria-label="ערוצים">
+        <div class="ch"><div class="lbl"><span>L</span><span>שמאל</span></div><div class="meter"><i id="mL"></i></div><div class="srcs" id="sL"></div></div>
+        <div class="ch"><div class="lbl"><span>R</span><span>ימין</span></div><div class="meter"><i id="mR"></i></div><div class="srcs" id="sR"></div></div>
+      </div>
+      <div class="warn" id="m-warn" hidden><b>!</b><span>ערוץ אחד שקט. זה בדיוק "שומעים רק באוזן אחת": משדר אחד שהוקלט ב-Stereo. עם דובר אחד מצלמים Mono, ואם כבר צולם, <a href="#capcut" style="color:inherit;font-weight:700">מתקנים ב-CapCut</a>.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CAPCUT ================= -->
+<section id="capcut">
+  <div class="head">
+    <p class="eyebrow">בעריכה</p>
+    <h2>קול רק באוזן אחת? מתקנים ב-CapCut</h2>
+    <p class="intro">זה לא מיקרופון מקולקל. הקובץ הוקלט ב-Stereo, וכל משדר נכנס לצד אחר. ב-CapCut במחשב יש אפשרות שמעתיקה ערוץ אחד לשני.</p>
+  </div>
+  <div class="cc">
+    <article class="cc-card">
+      <span class="tag">דובר אחד, צד אחד שקט</span>
+      <h3>שלושה קליקים</h3>
+      <p class="small" style="margin-top:6px">מאיזה צד שומעים את הקול?</p>
+      <div class="side" role="group" aria-label="צד הקול">
+        <button type="button" data-side="left" aria-pressed="true">רק משמאל</button>
+        <button type="button" data-side="right" aria-pressed="false">רק מימין</button>
+      </div>
+      <ol>
+        <li>מסמנים את הקליפ בטיימליין ופותחים את <span class="m">Audio</span> בפאנל הימני, לשונית <span class="m">Basic</span>.</li>
+        <li>מסמנים את <span class="m">Channels</span>.</li>
+        <li>בוחרים <span class="m" id="cc-opt">Fill right with left</span>. <span id="cc-why">הצד השמאלי, שבו יש קול, מועתק גם לימין.</span></li>
+        <li>מייצאים קטע קצר ומקשיבים באוזניות.</li>
+      </ol>
+      <div class="mock" aria-hidden="true">
+        <div class="bar"><span class="on">Basic</span><span>Voice changer</span><span>Speed</span></div>
+        <div class="r"><span>Volume</span><span class="slider"></span></div>
+        <div class="r"><span class="chk"><i>✓</i>Channels</span><span class="sel"><span id="cc-sel">Fill right with left</span><span>▾</span></span></div>
+      </div>
+      <p class="mock-cap">המחשה של הפאנל. המיקום המדויק יכול לזוז מעט בין גרסאות.</p>
+    </article>
+    <article class="cc-card">
+      <span class="tag">שני דוברים ב-Stereo</span>
+      <h3>כל דובר ברצועה משלו</h3>
+      <ol>
+        <li>קליק ימני על הקליפ ← <span class="m">Separate audio</span>, כדי שהקול יהיה ברצועה נפרדת.</li>
+        <li>מעתיקים את רצועת הקול ומדביקים עותק מתחתיה, בדיוק באותה נקודה בזמן.</li>
+        <li>ברצועה הראשונה: <span class="m">Channels</span> ← <span class="m">Fill right with left</span>. עכשיו היא רק דובר 1, בשתי האוזניים.</li>
+        <li>ברצועה השנייה: <span class="m">Fill left with right</span>. היא רק דובר 2.</li>
+        <li>מאזנים עוצמה, מנקים רעשים וחותכים כל דובר בנפרד.</li>
+      </ol>
+      <div class="mock" aria-hidden="true">
+        <div class="tl">
+          <div class="trk"><span class="nm">Video</span><span class="clip v">interview.mp4 · audio separated</span></div>
+          <div class="trk"><span class="nm">Audio 1</span><span class="clip a1">Fill right with left · TX1</span></div>
+          <div class="trk"><span class="nm">Audio 2</span><span class="clip a2">Fill left with right · TX2</span></div>
+        </div>
+      </div>
+      <p class="mock-cap">ההוראות ל-CapCut במחשב. באפליקציה בטלפון האפשרות לא מתועדת, אז מי שעורך בטלפון: לצלם Mono מראש.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ================= TROUBLESHOOTING ================= -->
+<section id="fix">
+  <div class="head">
+    <p class="eyebrow">תקלות</p>
+    <h2>משהו לא עובד</h2>
+    <p class="intro">כותבים מה קורה, או בוחרים מהרשימה.</p>
+  </div>
+  <div class="search">
+    <label for="q" class="vh">חיפוש תקלה</label>
+    <input id="q" type="search" placeholder="למשל: נורית, אוזן אחת, רוח" autocomplete="off">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+  </div>
+  <div class="qs" id="qs">
+    <button type="button" data-q="אוזן">אוזן אחת</button>
+    <button type="button" data-q="נורית">נורית</button>
+    <button type="button" data-q="מתחבר">לא מתחבר</button>
+    <button type="button" data-q="עיוות">עיוות</button>
+    <button type="button" data-q="רוח">רוח</button>
+  </div>
+  <div class="faq" id="faq">
+    <details open data-k="אוזן צד אחד שמאל ימין stereo סטריאו ערוץ">
+      <summary>שומעים רק באוזן אחת</summary>
+      <div class="a">
+        <p>המקלט כנראה ב-<b>Stereo</b> (הנורית שלו תכלת), ועם משדר אחד הקול נכנס רק לצד אחד.</p>
+        <p><b>לפני הצילום:</b> לחיצה כפולה על Link במקלט, עד שהנורית ירוקה (Mono).</p>
+        <p><b>כבר צולם:</b> <a href="#capcut">מתקנים ב-CapCut</a> עם Channels.</p>
+      </div>
+    </details>
+    <details data-k="נורית 1 2 כבויה לא מתחבר צימוד משדר מקלט חיבור">
+      <summary>נורית 1 או 2 במקלט כבויה</summary>
+      <div class="a">
+        <p>המשדר הזה לא מחובר למקלט.</p>
+        <p><b>הכי מהיר:</b> מכניסים את המשדר ואת המקלט למארז. הם מתחברים לבד.</p>
+        <p><b>ידנית:</b> לחיצה של 2 שניות על Link במשדר, עד הבהוב כחול וירוק. ואז 2 שניות על Link במקלט, עד שנורית המשדר מהבהבת ירוק מהר. ירוק קבוע = מחובר.</p>
+      </div>
+    </details>
+    <details data-k="כחול bluetooth בלוטות משדר מהבהב נורית">
+      <summary>המשדר מהבהב כחול ולא מתחבר למקלט</summary>
+      <div class="a">
+        <p>המשדר במצב Bluetooth, ומחפש טלפון או Osmo. כחול קבוע אומר שהוא כבר מחובר ישירות לטלפון, ואז הוא לא שולח למקלט.</p>
+        <p>מכניסים אותו ואת המקלט למארז, והם מתחברים מחדש זה לזה. אם הוא מחובר לטלפון, קודם מנתקים אותו בהגדרות ה-Bluetooth של הטלפון.</p>
+      </div>
+    </details>
+    <details data-k="נורית מקלט מהבהבת ירוק תכלת לא מזהה מצלמה טלפון כבל מתאם">
+      <summary>נורית המקלט מהבהבת לאט</summary>
+      <div class="a">
+        <p>המקלט לא מזהה מכשיר מקליט. בודקים שהכבל או המתאם נכנסו עד הסוף, ושהמצלמה או הטלפון דלוקים.</p>
+        <p>במצלמה: הכבל מחובר לכניסת המיקרופון (MIC), לא לכניסת האוזניות.</p>
+      </div>
+    </details>
+    <details data-k="טלפון לא מזהה אפליקציה אייפון lightning מתחבר usb">
+      <summary>הטלפון לא מקבל את המיקרופון</summary>
+      <div class="a">
+        <p>מוציאים את המקלט ומכניסים שוב. מנסים במצלמה של הטלפון עצמו, כדי לדעת אם הבעיה באפליקציה.</p>
+        <p>באייפון עם Lightning צריך מתאם Lightning, שנמכר בנפרד. בלי מתאם: מחברים משדר ישירות ב-Bluetooth, ובוחרים <span class="ltr">DJI Mic Mini-XXXXXX</span> ברשימת המכשירים של הטלפון.</p>
+      </div>
+    </details>
+    <details data-k="עיוות צורם קליפינג חזק gain עוצמה">
+      <summary>הקול צורם או מתעוות</summary>
+      <div class="a">
+        <p>מורידים את ה-gain במצלמה ומעלים את ה-gain במקלט בגלגלת. כך DJI ממליצים, וזה מונע עיוות.</p>
+        <p>ההגבלה האוטומטית (Automatic Limiting) מגינה מקפיצות פתאומיות. היא דלוקה כברירת מחדל, ואפשר לבדוק אותה באפליקציית DJI Mimo.</p>
+        <p>באירוע עם צעקות או מוזיקה: <a href="#sound">Safety Track</a>. עיוות שכבר הוקלט כמעט אי אפשר לתקן.</p>
+      </div>
+    </details>
+    <details data-k="רוח רעש בחוץ ספוג">
+      <summary>רעשי רוח</summary>
+      <div class="a">
+        <p>מלבישים ספוג רוח. סינון הרעשים עוזר לרעשי רקע כמו מזגן ותנועה, אבל לא מעלים רוח.</p>
+      </div>
+    </details>
+    <details data-k="רשרוש בגד חיכוך נקישות שרשרת">
+      <summary>רשרוש או נקישות</summary>
+      <div class="a">
+        <p>המשדר נוגע בבד שזז, או בשרשרת ורוכסן. מצמידים עם המגנט כדי שלא יזוז, ומרחיקים מתכשיטים.</p>
+      </div>
+    </details>
+    <details data-k="רעש רקע מזגן מאוורר סינון רעשים nc">
+      <summary>יש רעש רקע (מזגן, מאוורר, רחוב)</summary>
+      <div class="a">
+        <p>לחיצה קצרה על כפתור ההפעלה במשדר מדליקה סינון רעשים. נורית צהובה בצד = פעיל.</p>
+        <p>באפליקציית DJI Mimo בוחרים רמה: <b>Basic</b> לחדר עם מזגן או הד, <b>Strong</b> למקום רועש. במשדר שמחובר ישירות לטלפון הרמה קבועה על Strong.</p>
+      </div>
+    </details>
+    <details data-k="כבה נכבה לבד סוללה כיבוי אוטומטי">
+      <summary>המשדר או המקלט כבו לבד</summary>
+      <div class="a">
+        <p>אם הופעל כיבוי אוטומטי באפליקציית DJI Mimo, הם נכבים אחרי 15 דקות בלי חיבור. אחרת, כנראה נגמרה הסוללה (לפני כן הנורית אדומה).</p>
+      </div>
+    </details>
+    <details data-k="הקלטה פנימית זיכרון בלי טלפון גיבוי">
+      <summary>אפשר להקליט בלי טלפון או מצלמה?</summary>
+      <div class="a">
+        <p>לא. למשדר אין זיכרון פנימי, הוא רק משדר. תמיד צריך מכשיר שמקליט בפועל.</p>
+      </div>
+    </details>
+    <details data-k="צהוב נורית עדכון קושחה סינון">
+      <summary>נורית צהובה</summary>
+      <div class="a">
+        <p>בנורית הקטנה בצד המשדר: סינון רעשים פעיל. בנורית המצב הראשית, צהוב קבוע: מתעדכנת קושחה, לא לכבות.</p>
+      </div>
+    </details>
+    <details data-k="עדכון קושחה firmware mimo אפליקציה">
+      <summary>איך מעדכנים קושחה</summary>
+      <div class="a">
+        <p>באפליקציית DJI Mimo: נכנסים להגדרות המכשיר ← <span class="ltr">About Devices</span> ← לוחצים על גרסת הקושחה.</p>
+        <p><b>באייפון</b> העדכון עובד רק ב-Bluetooth: מנתקים את המתאם, מחברים את המשדר דרך הגדרות ה-Bluetooth, ואת המקלט מעבירים למצב Bluetooth בלחיצה של 6 שניות על כפתור ההפעלה כשהוא כבוי.</p>
+      </div>
+    </details>
+  </div>
+  <p class="empty" id="faq-empty" hidden>לא מצאנו. נסו מילה אחרת, למשל "נורית", "אוזן" או "רוח".</p>
+</section>
+
+<!-- ================= IN THE BOX ================= -->
+<section id="box">
+  <div class="head">
+    <p class="eyebrow">בקופסה</p>
+    <h2>מה יש בערכה</h2>
+    <p class="intro">הערכה עם שני משדרים, מקלט ומארז טעינה. ככה נראה כל פריט, כדי שיהיה קל לבדוק שהכל חזר לתיק.</p>
+  </div>
+  <div class="boxgrid">
+    <figure class="item"><div class="ph"><img src="img/tx.webp" width="1100" height="1078" alt="" loading="lazy"></div><figcaption>משדר <span class="mono ltr">×2</span></figcaption></figure>
+    <figure class="item"><div class="ph"><img src="img/rx.webp" width="1100" height="723" alt="" loading="lazy"></div><figcaption>מקלט <span class="mono ltr">×1</span></figcaption></figure>
+    <figure class="item"><div class="ph"><img src="img/case.webp" width="1100" height="697" alt="" loading="lazy"></div><figcaption>מארז טעינה <span class="mono ltr">×1</span></figcaption></figure>
+    <figure class="item"><div class="ph"><img src="img/adapter-usbc.webp" width="354" height="640" alt="" loading="lazy"></div><figcaption>מתאם USB-C לטלפון <span class="mono ltr">×1</span></figcaption></figure>
+    <figure class="item"><div class="ph"><img src="img/cable-35mm.webp" width="640" height="126" alt="" loading="lazy"></div><figcaption>כבל 3.5 מ״מ למצלמה <span class="mono ltr">×1</span></figcaption></figure>
+    <figure class="item"><div class="ph"><img src="img/cable-usbc.webp" width="283" height="640" alt="" loading="lazy"></div><figcaption>כבל טעינה USB-C <span class="mono ltr">×1</span></figcaption></figure>
+    <figure class="item"><div class="ph"><img src="img/windscreen-gray.webp" width="640" height="584" alt="" loading="lazy"></div><figcaption>ספוג רוח אפור <span class="mono ltr">×2</span></figcaption></figure>
+    <figure class="item"><div class="ph"><img src="img/windscreen-black.webp" width="640" height="628" alt="" loading="lazy"></div><figcaption>ספוג רוח שחור <span class="mono ltr">×2</span></figcaption></figure>
+    <figure class="item"><div class="ph"><img src="img/magnet.webp" width="463" height="640" alt="" loading="lazy"></div><figcaption>מגנט לקליפס <span class="mono ltr">×2</span></figcaption></figure>
+    <figure class="item"><div class="ph"><img src="img/pouch.webp" width="640" height="496" alt="" loading="lazy"></div><figcaption>נרתיק <span class="mono ltr">×1</span></figcaption></figure>
+  </div>
+  <p class="pnote boxnote">מתאם Lightning לאייפון ישן לא נמצא בקופסה ונמכר בנפרד.</p>
+</section>
+
+<!-- ================= SPECS ================= -->
+<section id="specs">
+  <div class="head">
+    <p class="eyebrow">מפרט</p>
+    <h2>במספרים</h2>
+  </div>
+  <div class="big">
+    <div><b>10<small>g</small></b><span>משקל משדר, בלי המגנט</span></div>
+    <div><b>400<small>m</small></b><span>טווח מקסימלי, שטח פתוח בלי הפרעות</span></div>
+    <div><b>11.5<small>h</small></b><span>משדר על סוללה אחת</span></div>
+    <div><b>48<small>h</small></b><span>עם הטעינות מהמארז</span></div>
+  </div>
+  <dl class="spec">
+    <dt>סוללת מקלט</dt><dd>~10.5 h</dd>
+    <dt>טעינת משדר / מקלט / מארז</dt><dd>~90 min / ~100 min / ~2 h</dd>
+    <dt>כמה טעינות מלאות במארז (2 משדרים ומקלט)</dt><dd>~3.6</dd>
+    <dt>משקל מקלט</dt><dd>~17.8 g</dd>
+    <dt>משדרים למקלט אחד</dt><dd>2</dd>
+    <dt>כיווניות</dt><dd>Omni</dd>
+    <dt>עוצמת קול מקסימלית</dt><dd>120 dB SPL</dd>
+    <dt>תחום תדרים</dt><dd>20 Hz to 20 kHz</dd>
+    <dt>חיבור ישיר ל-Osmo, זמן סוללה</dt><dd>7 to 8 h</dd>
+    <dt>טמפרטורת עבודה</dt><dd>-10 to 45 °C</dd>
+    <dt>דגמים</dt><dd>TX DMMT01 · RX DMMR01 · Case DMMC01</dd>
+    <dt>אלחוט</dt><dd>2.4 GHz · Bluetooth 5.3</dd>
+  </dl>
+  <p class="small" style="margin-top:12px">הנתונים של DJI, נמדדו בתנאי מעבדה. בשטח הטווח והסוללה יוצאים בדרך כלל קצרים יותר.</p>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2>מקורות</h2>
+    <ul>
+      <li>כפתורים, נורות וחיבורים: <a href="https://dl.djicdn.com/downloads/DJI_Mic_Mini/20251230/DJI_Mic_Mini_User_Manual_EN.pdf" target="_blank" rel="noopener">מדריך המשתמש הרשמי של DJI (PDF)</a></li>
+      <li>משקל, טווח וסוללה: <a href="https://www.dji.com/mic-mini/specs" target="_blank" rel="noopener">המפרט הרשמי</a></li>
+      <li>מצבי הקלטה, סינון רעשים וכיבוי אוטומטי: <a href="https://www.dji.com/mic-mini/faq" target="_blank" rel="noopener">שאלות ותשובות של DJI</a></li>
+      <li>טבלת gain לפי מצלמה ורשימת תאימות: <a href="https://www.dji.com/mic-mini/downloads" target="_blank" rel="noopener">עמוד ההורדות</a></li>
+      <li>תיקון ערוצים ב-CapCut: <a href="https://rri.co.id/iptek/864203/mengatasi-audio-yang-terdengar-sebelah-menggunakan-capcut" target="_blank" rel="noopener">כתבה של RRI</a></li>
+    </ul>
+    <p>מדריך עצמאי לצוות, לא מטעם DJI. תמונות המוצר: DJI. מתאים למקלט הרגיל של Mic Mini. המקלט לטלפון (Mobile Receiver) הוא מוצר אחר, וחלק מהפעולות בו שונות.</p>
+  </div>
+</footer>
+
+<nav class="tabbar" aria-label="ניווט מהיר">
+  <a href="#setup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6h10M10 12h10M10 18h10"/><path d="M3.5 6l1.4 1.4L7.5 4.8M3.5 12l1.4 1.4 2.6-2.6M3.5 18l1.4 1.4 2.6-2.6"/></svg>הכנה</a>
+  <a href="#parts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4.5" y="4.5" width="15" height="15" rx="4.5"/><circle cx="15.5" cy="8.5" r="1.4" fill="currentColor" stroke="none"/><path d="M4.5 10v4" stroke-linecap="round"/></svg>חלקים</a>
+  <a href="#leds"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.6"/><path d="M12 3v2.2M12 18.8V21M3 12h2.2M18.8 12H21M5.6 5.6l1.6 1.6M16.8 16.8l1.6 1.6M5.6 18.4l1.6-1.6M16.8 7.2l1.6-1.6"/></svg>נורות</a>
+  <a href="#sound"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 12h1.5M7 8.5v7M11 5v14M15 8v8M19 10.5v3"/></svg>ערוצים</a>
+  <a href="#fix"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.4c-.6.3-1 .8-1 1.5v.5"/><circle cx="12" cy="16.6" r=".6" fill="currentColor"/></svg>תקלות</a>
+</nav>
+
+<script>
+(function(){
+'use strict';
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem('djimm:'+k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem('djimm:'+k, JSON.stringify(v)); }catch(e){} }
+};
+const LED = c => `<span class="dot" style="--c:var(--led-${c})"></span>`;
+
+/* ================= active nav ================= */
+const navLinks = $$('.tabbar a, .topnav a');
+const secs = ['setup','parts','wear','leds','sound','capcut','fix','box','specs'].map(id => document.getElementById(id));
+const navFor = {wear:'parts', capcut:'sound', box:'fix', specs:'fix'};
+if ('IntersectionObserver' in window){
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => {
+      if (!e.isIntersecting) return;
+      const id = e.target.id;
+      navLinks.forEach(a => {
+        const h = a.getAttribute('href').slice(1);
+        const inTop = a.closest('.topnav');
+        const match = inTop ? h === id : h === (navFor[id] || id);
+        a.setAttribute('aria-current', match ? 'true' : 'false');
+      });
+    });
+  }, {rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(s => s && io.observe(s));
+}
+
+/* ================= setup wizard ================= */
+const DEV = {
+  phone:     {label:'טלפון USB-C', conn:'USB-C', img:'img/vlog.webp', w:1400, h:560},
+  lightning: {label:'אייפון עם Lightning', conn:'Lightning', img:'img/vlog.webp', w:1400, h:560},
+  camera:    {label:'מצלמה', conn:'כבל 3.5 מ״מ', img:'img/on-camera.webp', w:982, h:960},
+  computer:  {label:'מחשב', conn:'USB-C', img:'img/rx.webp', w:1100, h:723, cut:true},
+  osmo:      {label:'Osmo של DJI', conn:'ישיר, בלי מקלט', img:'img/osmo.webp', w:1386, h:960}
+};
+const wiz = $('#wiz');
+const saved = store.get('wiz', null);
+if (saved){
+  ['dev','who','env'].forEach(k => { const el = wiz.querySelector(`input[name="${k}"][value="${saved[k]}"]`); if (el) el.checked = true; });
+}
+function state(){ const f = new FormData(wiz); return {dev:f.get('dev'), who:f.get('who'), env:f.get('env')}; }
+
+function buildSteps(s){
+  const two = s.who !== 'one';
+  const L = [];
+  const osmo = s.dev === 'osmo';
+  if (osmo){
+    L.push(`מוציאים מהמארז ${two ? 'את שני המשדרים' : 'משדר אחד'}. המקלט נשאר במארז: ה-Osmo מתחבר ישירות למשדר.`);
+    L.push(`ב-Osmo: הגדרות מערכת ← <b>Wireless Microphone</b>, ועוקבים אחרי ההוראות במסך.`);
+    L.push(`במשדר: לחיצה של 2 שניות על <b>Link</b>, עד שהנורית מהבהבת כחול וירוק לסירוגין. ${LED('blue')} כחול קבוע = מחובר.${two ? ' חוזרים על זה עם המשדר השני.' : ''}<span class="note">${two ? 'שני משדרים: Osmo Pocket 3 ו-Osmo Action 5 Pro. ל-Osmo Action 4 מתחבר משדר אחד בלבד.' : 'עובד עם Osmo Pocket 3, Osmo Action 5 Pro, Osmo Action 4 ו-Osmo 360.'}</span>`);
+  } else {
+    L.push(`מוציאים מהמארז ${two ? 'את שני המשדרים' : 'משדר אחד'} ואת המקלט. הם נדלקים לבד, וכבר מחוברים זה לזה מהמפעל.<span class="note">${LED('red')} נורית אדומה = פחות מ-10% סוללה. אז קודם להטעין.</span>`);
+    if (s.dev === 'phone'){
+      L.push(`מחברים את מתאם ה-USB-C לחיבור בתחתית המקלט, ומכניסים לטלפון.`);
+    } else if (s.dev === 'lightning'){
+      L.push(`מחברים את מתאם ה-Lightning למקלט ומכניסים לאייפון. המתאם הזה לא בקופסה, הוא נמכר בנפרד.<span class="note">אין מתאם? מחברים משדר ישירות ב-Bluetooth: 2 שניות על Link עד הבהוב כחול וירוק, ובהגדרות ה-Bluetooth של האייפון בוחרים <span class="ltr">DJI Mic Mini-XXXXXX</span>. ${LED('blue')} כחול קבוע = מחובר.</span>`);
+    } else if (s.dev === 'camera'){
+      L.push(`מצמידים את המקלט לנעל של המצלמה עם הקליפס, ומחברים את כבל ה-3.5 מ״מ מהמקלט לכניסת המיקרופון של המצלמה.<span class="note">מעכשיו המקלט נדלק ונכבה יחד עם המצלמה.</span>`);
+    } else if (s.dev === 'computer'){
+      L.push(`מחברים את המקלט למחשב בכבל ה-USB-C.`);
+      L.push(`בהגדרות הקול של המחשב, או בתוך האפליקציה (Zoom, OBS, Premiere), בוחרים את <span class="ltr">DJI Mic Mini</span> כמיקרופון. מדברים ובודקים שהמחוון זז.`);
+    }
+    L.push(two
+      ? `בודקים ששתי הנוריות, 1 ו-2, דולקות ${LED('green')} ירוק במקלט. שני המשדרים מחוברים.`
+      : `בודקים שנורית 1 (או 2) במקלט דולקת ${LED('green')} ירוק. המשדר מחובר.`);
+    if (s.who === 'one'){
+      L.push(`נורית המקלט צריכה להיות ${LED('green')} <b>ירוקה: Mono</b>. תכלת? לחיצה כפולה על Link במקלט.<span class="note">משדר אחד ב-Stereo = קול רק באוזן אחת.</span>`);
+    } else if (s.who === 'quick'){
+      L.push(`<b>Mono</b>: שני הקולות יחד, בשתי האוזניים, מוכן לעריכה בטלפון. נורית המקלט ${LED('green')} ירוקה. תכלת? לחיצה כפולה על Link במקלט.<span class="note">ב-Mono אי אפשר אחר כך להפריד בין הדוברים.</span>`);
+    } else {
+      L.push(`<b>Stereo</b>: כל דובר בערוץ משלו. נורית המקלט ${LED('cyan')} תכלת. ירוקה? לחיצה כפולה על Link במקלט.<span class="note">בעריכה מפצלים לשתי רצועות. <a href="#capcut">איך עושים את זה ב-CapCut</a>.</span>`);
+    }
+  }
+  if (osmo && s.who === 'desk'){
+    L.push(`הגדרות הקול של המשדרים (ערוצים, סינון רעשים) נמצאות באותו מסך <b>Wireless Microphone</b> ב-Osmo.`);
+  }
+  L.push(`מצמידים ${two ? 'כל משדר לדובר שלו' : 'את המשדר'} באמצע החזה העליון, בערך שתי כפות יד מתחת לסנטר.<span class="note">בחולצה דקה: המגנט מבפנים, המשדר מבחוץ.</span>`);
+  const ncWhere = osmo ? 'את הרמה בוחרים במסך של ה-Osmo.' : (s.dev === 'lightning' ? 'באפליקציית DJI Mimo בוחרים רמה. במשדר שמחובר ישירות ב-Bluetooth היא קבועה על Strong.' : 'באפליקציית DJI Mimo בוחרים רמה.');
+  if (s.env === 'quiet'){
+    L.push(`בחדר שקט אפשר בלי סינון רעשים. יש מזגן או מאוורר? לחיצה קצרה על כפתור ההפעלה במשדר מדליקה סינון. ${LED('yellow')} נורית צהובה בצד = פעיל.<span class="note">רמה מומלצת: <b>Basic</b>. ${ncWhere}</span>`);
+  } else if (s.env === 'out'){
+    L.push(`מלבישים ספוג רוח על ${two ? 'כל משדר' : 'המשדר'}. סינון הרעשים לא מחליף אותו.<span class="note">יש תנועה ברקע? לחיצה קצרה על כפתור ההפעלה במשדר מדליקה סינון רעשים (${LED('yellow')} נורית צהובה).</span>`);
+  } else {
+    L.push(`מדליקים סינון רעשים: לחיצה קצרה על כפתור ההפעלה במשדר. ${LED('yellow')} נורית צהובה בצד = פעיל.<span class="note">רמה מומלצת: <b>Strong</b>. ${ncWhere}</span>`);
+  }
+  if (s.dev === 'camera'){
+    L.push(`במצלמה מורידים את ה-gain של המיקרופון, ובמקלט מעלים את ה-gain בגלגלת. זו ההמלצה של DJI נגד עיוות.<span class="note">יש <a href="https://www.dji.com/mic-mini/downloads" target="_blank" rel="noopener">טבלת הגדרות לפי דגם מצלמה</a> בעמוד ההורדות של DJI.</span>`);
+  } else if (s.dev === 'phone' || s.dev === 'lightning'){
+    L.push(`לחיצה קצרה על Link במשדר מתחילה ועוצרת צילום, לפי DJI. לא כל אפליקציה מגיבה לזה, אז בודקים פעם אחת לפני.${s.dev === 'phone' ? '<span class="note">צילום ארוך או לייב: מחברים כבל טעינה למקלט, והטלפון נטען יחד איתו.</span>' : ''}`);
+  } else if (osmo){
+    L.push(`לחיצה קצרה על Link במשדר מתחילה ועוצרת צילום ב-Osmo.<span class="note">בחיבור ישיר הסוללה של המשדר מחזיקה כ-7 עד 8 שעות.</span>`);
+  }
+  L.push(`צילום בדיקה של 10 שניות: מדברים רגיל, ואז חזק. מקשיבים באוזניות. קול בשתי האוזניים ובלי עיוות? מצלמים.`);
+  return L;
+}
+
+function badges(s){
+  const d = DEV[s.dev];
+  const out = [`<span class="badge">חיבור <b>${d.conn}</b></span>`];
+  if (s.dev === 'osmo') out.push(`<span class="badge">${LED('blue')}<b>DIRECT</b></span>`);
+  else if (s.who === 'desk') out.push(`<span class="badge">${LED('cyan')}<b>STEREO</b></span>`);
+  else out.push(`<span class="badge">${LED('green')}<b>MONO</b></span>`);
+  out.push(`<span class="badge">סינון רעשים <b>${s.env === 'noisy' ? 'Strong' : s.env === 'quiet' ? 'Basic / כבוי' : 'לפי הצורך'}</b></span>`);
+  if (s.env === 'out') out.push(`<span class="badge">ספוג רוח <b>כן</b></span>`);
+  out.push(`<span class="badge">משדרים <b>${s.who === 'one' ? '1' : '2'}</b></span>`);
+  return out.join('');
+}
+
+let checks = store.get('checks', {});
+function key(s){ return `${s.dev}-${s.who}-${s.env}`; }
+function renderWiz(){
+  const s = state();
+  store.set('wiz', s);
+  const d = DEV[s.dev];
+  const img = $('#w-img');
+  if (img.getAttribute('src') !== d.img){ img.src = d.img; img.width = d.w; img.height = d.h; }
+  $('#w-banner').classList.toggle('cut', !!d.cut);
+  $('#w-cap').textContent = d.label + (s.who === 'one' ? ' · דובר אחד' : ' · שני דוברים');
+  $('#w-badges').innerHTML = badges(s);
+  const steps = buildSteps(s);
+  const k = key(s), done = checks[k] || [];
+  $('#w-steps').innerHTML = steps.map((t, i) =>
+    `<li><label><input type="checkbox" id="st-${i}" data-i="${i}"${done.includes(i) ? ' checked' : ''}><span class="n" aria-hidden="true"></span><span class="t">${t}</span></label></li>`).join('');
+  count();
+}
+function count(){
+  const all = $$('#w-steps input'), on = all.filter(x => x.checked).length;
+  $('#w-count').textContent = on === all.length && on ? 'הכל מוכן. מצלמים.' : `${on} מתוך ${all.length} שלבים`;
+}
+wiz.addEventListener('change', renderWiz);
+$('#w-steps').addEventListener('change', e => {
+  if (!e.target.matches('input')) return;
+  const k = key(state());
+  checks[k] = $$('#w-steps input').filter(x => x.checked).map(x => +x.dataset.i);
+  store.set('checks', checks); count();
+});
+$('#w-steps').addEventListener('click', e => { if (e.target.closest('a')) e.stopPropagation(); });
+$('#w-reset').addEventListener('click', () => { delete checks[key(state())]; store.set('checks', checks); renderWiz(); });
+renderWiz();
+
+/* ================= parts ================= */
+const A = (k, v) => `<span class="act"><b>${k}</b>${v}</span>`;
+const PARTS = {
+  tx: {
+    img:'img/tx.webp', w:1100, h:1078, alt:'המשדר של DJI Mic Mini מלפנים',
+    pins:[
+      {x:6.5,y:15, name:'נורית מצב', where:'בצד, למעלה', text:'ירוק: מחובר למקלט. כחול: מחובר ב-Bluetooth. כחול וירוק לסירוגין: מחפש חיבור. אדום: פחות מ-10% סוללה.', acts:[]},
+      {x:2.8,y:37, name:'כפתור Link', where:'בצד, הכפתור הארוך', text:'צימוד, ושליטה בצילום כשמחוברים ל-Osmo או לטלפון.', acts:[A('2 ש׳','צימוד'), A('לחיצה','התחלה / עצירה של צילום')]},
+      {x:3.2,y:68, name:'כפתור הפעלה', where:'בצד, הכפתור הקצר', text:'הדלקה, כיבוי וסינון רעשים.', acts:[A('2 ש׳','הדלקה / כיבוי'), A('לחיצה','סינון רעשים')]},
+      {x:93.5,y:15, name:'נורית סינון רעשים', where:'בצד השני', text:'צהוב: סינון רעשים פעיל. כבויה: הסינון כבוי.', acts:[]}
+    ],
+    note:'המשדר נדלק לבד כשמוציאים אותו מהמארז. אין לו זיכרון פנימי, אז הוא לא מקליט לבד. בגב: קליפס, ואפשר להחליף אותו במגנט.'
+  },
+  rx: {
+    img:'img/rx.webp', w:1100, h:723, alt:'המקלט של DJI Mic Mini מלפנים',
+    pins:[
+      {x:6,y:22, name:'גלגלת', where:'בפינה', text:'מסובבים כדי לכוון את ה-gain של המקלט.', acts:[A('סיבוב','gain')]},
+      {x:79.6,y:15, name:'נוריות 1 ו-2', where:'למעלה', text:'נורית לכל משדר. ירוק: מחובר. כבויה: לא מחובר. מהבהבת מהר: צימוד. צהוב: סינון רעשים פעיל במשדר. אדום: הסוללה שלו נגמרת.', acts:[]},
+      {x:8.8,y:68, name:'כפתור הפעלה', where:'בצד', text:'הדלקה וכיבוי. במצלמה המקלט נדלק ונכבה יחד איתה.', acts:[A('2 ש׳','הדלקה / כיבוי'), A('6 ש׳ כשכבוי','Bluetooth ל-DJI Mimo, אייפון')]},
+      {x:97.5,y:59, name:'כפתור Link ויציאת 3.5 מ״מ', where:'בצד השני', text:'מכאן עוברים בין Mono ל-Stereo. יציאת ה-3.5 היא לכבל של המצלמה.', acts:[A('לחיצה כפולה','Mono / Stereo'), A('2 ש׳','צימוד')]},
+      {x:53,y:92, name:'חיבורים בתחתית', where:'למטה', text:'חיבור למתאם הטלפון (מתחת לכיסוי הקטן), ויציאת USB-C למחשב ולטעינה.', acts:[]}
+    ],
+    note:'נורית המצב של המקלט: ירוק = Mono או Safety Track, תכלת = Stereo, מהבהבת = אין מכשיר מקליט מחובר. בגב יש קליפס לנעל המצלמה.'
+  },
+  case: {
+    img:'img/case.webp', w:1100, h:697, alt:'מארז הטעינה של DJI Mic Mini מלפנים',
+    pins:[
+      {x:50,y:90, name:'4 נוריות סוללה', where:'מלפנים', text:'כמה סוללה נשארה במארז עצמו. בחרו רמה כדי לראות איך זה נראה.', acts:[]}
+    ],
+    note:'מכניסים את המשדרים והמקלט וסוגרים: הם נטענים, וגם מתחברים מחדש זה לזה. המארז נטען דרך USB-C בגב, ומספיק לכ-3.6 טעינות מלאות.',
+    leds:[40.9,46.8,52.9,59.1]
+  }
+};
+const LEVELS = [
+  {k:'100%', s:['on','on','on','on']},
+  {k:'60%',  s:['on','on','on','']},
+  {k:'40%',  s:['on','on','','']},
+  {k:'20%',  s:['on','','','']},
+  {k:'<10%', s:['blink','','','']},
+  {k:'בטעינה', s:['on','on','blink','']}
+];
+let part = store.get('part','tx'), pinActive = 0, caseLevel = 0;
+function renderParts(){
+  const P = PARTS[part];
+  $$('.tabs button').forEach(b => b.setAttribute('aria-selected', b.dataset.part === part ? 'true' : 'false'));
+  let html = `<img src="${P.img}" width="${P.w}" height="${P.h}" alt="${P.alt}">`;
+  if (P.leds){
+    const st = LEVELS[caseLevel].s;
+    html += P.leds.map((x, i) => `<span class="case-led ${st[i] === 'on' ? 'on' : st[i] === 'blink' ? 'blink' : ''}" style="left:${x}%;top:78.2%"></span>`).join('');
+  }
+  html += P.pins.map((p, i) => `<button type="button" class="pin" style="left:${p.x}%;top:${p.y}%" aria-pressed="${i === pinActive}" aria-label="${p.name}" data-i="${i}">${i + 1}</button>`).join('');
+  $('#p-fig').innerHTML = html;
+  $('#p-list').innerHTML = P.pins.map((p, i) => `<li data-i="${i}" aria-current="${i === pinActive}"><span class="num">${i + 1}</span><div><h3>${p.name}<span class="where">${p.where}</span></h3><p>${p.text}</p>${p.acts.length ? `<div class="acts">${p.acts.join('')}</div>` : ''}</div></li>`).join('');
+  $('#p-note').textContent = P.note;
+  $('#p-extra').innerHTML = part === 'case'
+    ? `<div class="levels" role="group" aria-label="רמת סוללה">${LEVELS.map((l, i) => `<button type="button" data-l="${i}" aria-pressed="${i === caseLevel}">${l.k}</button>`).join('')}</div>
+       <figure class="open-shot"><img src="img/case-open.webp" width="1060" height="700" alt="המארז פתוח, עם שני משדרים, מקלט ומתאם USB-C בפנים" loading="lazy"><figcaption>מבפנים: שני משדרים, המקלט ומתאם הטלפון. הספוגים יכולים להישאר על המשדרים.</figcaption></figure>`
+    : '';
+}
+$('.tabs').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  part = b.dataset.part; pinActive = 0; store.set('part', part); renderParts();
+});
+$('.tabs').addEventListener('keydown', e => {
+  if (!['ArrowLeft','ArrowRight'].includes(e.key)) return;
+  const order = ['tx','rx','case']; let i = order.indexOf(part);
+  i = (i + (e.key === 'ArrowLeft' ? 1 : -1) + 3) % 3; part = order[i]; pinActive = 0; renderParts();
+  $(`.tabs [data-part="${part}"]`).focus();
+});
+document.addEventListener('click', e => {
+  const pin = e.target.closest('.pin, .plist li');
+  if (pin){ pinActive = +pin.dataset.i; renderParts(); return; }
+  const lv = e.target.closest('.levels button');
+  if (lv){ caseLevel = +lv.dataset.l; renderParts(); }
+});
+renderParts();
+
+/* ================= led filter ================= */
+$('.filter').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  $$('.filter button').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+  $$('.ledcard').forEach(c => c.hidden = !(b.dataset.f === 'all' || c.dataset.dev === b.dataset.f));
+});
+
+/* ================= sound lab ================= */
+const MODES = {
+  mono:   {m:[.7,.7,.7,.7], led:'green', title:'Mono', text:'שני המשדרים מתערבבים לערוץ אחד, ושומעים את שניהם בשתי האוזניים. אחרי הצילום כבר אי אפשר להפריד ביניהם.',
+           when:'דובר אחד. או שניים, כשעורכים מהר בטלפון.', how:'לחיצה כפולה על Link במקלט, עד שהנורית ירוקה.'},
+  stereo: {m:[1,0,0,1], led:'cyan', title:'Stereo', text:'משדר 1 נכנס לערוץ השמאלי ומשדר 2 לימני. כל דובר נשאר נפרד, אבל בלי עריכה כל אחד נשמע באוזן אחרת.',
+           when:'ראיון עם שני דוברים, כשעורכים במחשב ורוצים לשלוט בכל אחד.', how:'לחיצה כפולה על Link במקלט, עד שהנורית תכלת.'},
+  safety: {m:[.7,.35,.7,.35], led:'green', title:'Safety Track', text:'ערוץ אחד בעוצמה רגילה, ובשני עותק חלש יותר ב-6dB. אם מישהו צועק פתאום והערוץ הרגיל מתעוות, העותק השקט מציל את הקטע.',
+           when:'אירוע, הופעה, ספורט: כשהעוצמה קופצת. לא מפריד בין דוברים.', how:'בוחרים באפליקציית DJI Mimo (הלחיצה הכפולה מחליפה רק בין Mono ל-Stereo). הנורית ירוקה, כמו ב-Mono. בעריכה בוחרים באחד הערוצים.'}
+};
+let mode = 'stereo', tx2 = true, ctx = null, voices = [], an = [], playing = false, timer = 0, raf = 0, next = 0, turn = 0;
+
+function renderMode(){
+  const M = MODES[mode];
+  $$('.seg button').forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === mode ? 'true' : 'false'));
+  $('#m-text').innerHTML = `<h3>${LED(M.led)}<span class="ltr">${M.title}</span></h3><p>${M.text}</p>
+    <dl><dt>מתי</dt><dd>${M.when}</dd><dt>איך עוברים</dt><dd>${M.how}</dd></dl>`;
+  const [aL, aR, bL, bR] = M.m;
+  const chips = (a, b, half) => {
+    const out = [];
+    if (a) out.push(`<span class="src s1${half ? ' quiet' : ''}">TX1${half ? ' −6dB' : ''}</span>`);
+    if (b && tx2) out.push(`<span class="src s2${half ? ' quiet' : ''}">TX2${half ? ' −6dB' : ''}</span>`);
+    return out.length ? out.join('') : '<span class="silent">שקט</span>';
+  };
+  const half = mode === 'safety';
+  $('#sL').innerHTML = chips(aL, bL, false);
+  $('#sR').innerHTML = chips(aR, bR, half);
+  const silent = (mode === 'stereo' && !tx2);
+  $('#m-warn').hidden = !silent;
+  if (!playing) idleMeters();
+  route();
+}
+function idleMeters(){
+  const [aL, aR, bL, bR] = MODES[mode].m;
+  const l = Math.max(aL, tx2 ? bL : 0), r = Math.max(aR, tx2 ? bR : 0);
+  $('#mL').style.setProperty('--lvl', (l * .8).toFixed(2));
+  $('#mR').style.setProperty('--lvl', (r * .8).toFixed(2));
+}
+$('.seg').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; mode = b.dataset.mode; renderMode(); });
+$('#tx2').addEventListener('change', e => { tx2 = e.target.checked; renderMode(); });
+
+const VOW = [[730,1090],[530,1840],[320,2250],[570,840],[440,1020],[660,1700],[390,2000]];
+function makeVoice(f0, k){
+  const osc = ctx.createOscillator(); osc.type = 'sawtooth'; osc.frequency.value = f0;
+  const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 3400;
+  const f1 = ctx.createBiquadFilter(); f1.type = 'bandpass'; f1.Q.value = 5;
+  const f2 = ctx.createBiquadFilter(); f2.type = 'bandpass'; f2.Q.value = 8;
+  const g2 = ctx.createGain(); g2.gain.value = .6;
+  const amp = ctx.createGain(); amp.gain.value = 0;
+  const toL = ctx.createGain(), toR = ctx.createGain(); toL.gain.value = 0; toR.gain.value = 0;
+  osc.connect(lp); lp.connect(f1); lp.connect(f2); f2.connect(g2);
+  f1.connect(amp); g2.connect(amp); amp.connect(toL); amp.connect(toR);
+  osc.start();
+  return {osc, f1, f2, amp, toL, toR, f0, k};
+}
+function setupAudio(){
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if (!AC) return false;
+  ctx = new AC();
+  const merger = ctx.createChannelMerger(2);
+  const comp = ctx.createDynamicsCompressor(); comp.threshold.value = -18; comp.ratio.value = 4;
+  const master = ctx.createGain(); master.gain.value = 1.4;
+  merger.connect(comp); comp.connect(master); master.connect(ctx.destination);
+  const split = ctx.createChannelSplitter(2); master.connect(split);
+  an = [ctx.createAnalyser(), ctx.createAnalyser()];
+  an.forEach((a, i) => { a.fftSize = 1024; split.connect(a, i); });
+  voices = [makeVoice(112, 1), makeVoice(205, 1.17)];
+  voices.forEach(v => { v.toL.connect(merger, 0, 0); v.toR.connect(merger, 0, 1); });
+  return true;
+}
+function route(){
+  if (!ctx) return;
+  const m = MODES[mode].m, t = ctx.currentTime;
+  voices.forEach((v, i) => {
+    const on = i === 0 || tx2;
+    v.toL.gain.setTargetAtTime(on ? m[i * 2] : 0, t, .04);
+    v.toR.gain.setTargetAtTime(on ? m[i * 2 + 1] : 0, t, .04);
+  });
+}
+function speak(v, t, n){
+  for (let i = 0; i < n; i++){
+    const [a, b] = VOW[Math.random() * VOW.length | 0];
+    const d = .1 + Math.random() * .14;
+    const p = v.f0 * (1 + .1 * Math.sin(i * 1.4 + v.k) - (i / n) * .14 + (Math.random() - .5) * .06);
+    v.osc.frequency.setTargetAtTime(p, t, .03);
+    v.f1.frequency.setTargetAtTime(a * v.k, t, .02);
+    v.f2.frequency.setTargetAtTime(b * v.k, t, .02);
+    v.amp.gain.setValueAtTime(0, t);
+    v.amp.gain.linearRampToValueAtTime(1.7, t + .025);
+    v.amp.gain.setValueAtTime(1.7, t + d - .035);
+    v.amp.gain.linearRampToValueAtTime(0, t + d);
+    t += d + (Math.random() < .22 ? .16 : .035);
+  }
+  return t;
+}
+function pump(){
+  while (next < ctx.currentTime + 1.2){
+    next = speak(voices[turn % 2], next, 3 + (Math.random() * 5 | 0)) + .22;
+    turn++;
+  }
+}
+const buf = new Float32Array(1024);
+function meters(){
+  [['#mL', 0], ['#mR', 1]].forEach(([sel, i]) => {
+    an[i].getFloatTimeDomainData(buf);
+    let s = 0; for (let j = 0; j < buf.length; j++) s += buf[j] * buf[j];
+    const lvl = Math.min(1, Math.sqrt(s / buf.length) * 3.2);
+    $(sel).style.setProperty('--lvl', lvl.toFixed(3));
+  });
+  raf = requestAnimationFrame(meters);
+}
+function setPlayUI(){
+  $('#play').setAttribute('aria-pressed', playing ? 'true' : 'false');
+  $('#play-lbl').textContent = playing ? 'עצירה' : 'השמעת הדגמה';
+  $('#play-ico').setAttribute('d', playing ? 'M4 3h3v10H4zM9 3h3v10H9z' : 'M4 2.5v11l9-5.5z');
+}
+function start(){
+  if (!ctx && !setupAudio()){ $('#play-lbl').textContent = 'הדפדפן לא תומך בהשמעה'; return; }
+  ctx.resume().catch(() => {});
+  route();
+  next = ctx.currentTime + .12; turn = 0;
+  pump(); timer = setInterval(pump, 400);
+  playing = true; setPlayUI(); meters();
+}
+function stop(){
+  playing = false; clearInterval(timer); cancelAnimationFrame(raf);
+  if (ctx){
+    const t = ctx.currentTime;
+    voices.forEach(v => { v.amp.gain.cancelScheduledValues(t); v.amp.gain.setValueAtTime(0, t); v.osc.frequency.cancelScheduledValues(t); v.f1.frequency.cancelScheduledValues(t); v.f2.frequency.cancelScheduledValues(t); });
+    setTimeout(() => { if (!playing && ctx) ctx.suspend(); }, 150);
+  }
+  setPlayUI(); idleMeters();
+}
+$('#play').addEventListener('click', () => playing ? stop() : start());
+document.addEventListener('visibilitychange', () => { if (document.hidden && playing) stop(); });
+renderMode();
+
+/* ================= capcut side ================= */
+$('.side').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  $$('.side button').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+  const left = b.dataset.side === 'left';
+  const opt = left ? 'Fill right with left' : 'Fill left with right';
+  $('#cc-opt').textContent = opt; $('#cc-sel').textContent = opt;
+  $('#cc-why').textContent = left ? 'הצד השמאלי, שבו יש קול, מועתק גם לימין.' : 'הצד הימני, שבו יש קול, מועתק גם לשמאל.';
+});
+
+/* ================= troubleshooting search ================= */
+const q = $('#q'), items = $$('#faq details');
+function filter(){
+  const v = q.value.trim().toLowerCase();
+  let shown = 0;
+  items.forEach(d => {
+    const hay = (d.dataset.k + ' ' + d.textContent).toLowerCase();
+    const ok = !v || v.split(/\s+/).every(w => hay.includes(w));
+    d.hidden = !ok; if (ok) shown++;
+  });
+  $('#faq-empty').hidden = shown > 0;
+  if (v){ const first = items.find(d => !d.hidden); items.forEach(d => d.open = d === first); }
+}
+q.addEventListener('input', filter);
+$('#qs').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; q.value = b.dataset.q; filter(); });
+})();
+</script>
+</body>
+</html>
