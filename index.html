@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>DJI Mic Mini מדריך שטח</title>
-<meta name="description" content="מדריך שטח בעברית ל-DJI Mic Mini: חיבור לטלפון, למצלמה ולמחשב, כל כפתור וכל נורה, Mono מול Stereo ותיקון קול שיוצא רק באוזן אחת ב-CapCut.">
+<meta name="description" content="מדריך שטח בעברית ל-DJI Mic Mini: חיבור לטלפון ב-USB-C, כל כפתור וכל נורה, Mono מול Stereo ותיקון קול שיוצא רק באוזן אחת ב-CapCut.">
 <meta property="og:title" content="DJI Mic Mini מדריך שטח">
 <meta property="og:description" content="לחבר, להקליט, לתקן. כל הכפתורים, הנורות ומצבי ההקלטה, עם תמונות אמיתיות של הערכה.">
 <meta property="og:image" content="https://orisamuel.github.io/dji-mic-mini-guide/img/og.jpg">
@@ -222,12 +222,14 @@ section{padding-block:56px;scroll-margin-top:16px;border-top:1px solid var(--lin
 .filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
 .filter button{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 15px;font-weight:600;cursor:pointer;min-height:40px}
 .filter button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.ledgrid{display:grid;gap:16px}
 .ledcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:6px 16px 10px;min-width:0}
 .ledcard h3{display:flex;align-items:center;gap:10px;padding:12px 0 6px}
 .ledcard h3 .mono{font-size:11px;color:var(--muted);font-weight:500}
 .grp{font-size:12px;color:var(--muted);font-weight:600;padding:12px 0 2px;letter-spacing:.02em}
-.row{display:grid;grid-template-columns:34px 1fr;gap:4px 10px;align-items:start;padding:10px 0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:34px 1fr;gap:4px 10px;align-items:start;padding:10px 8px;border:0;border-top:1px solid var(--line);background:transparent;width:100%;text-align:right;font:inherit;color:inherit;cursor:pointer;border-radius:0;transition:background .15s}
+.row:hover{background:var(--chip)}
+.row[aria-pressed="true"]{background:var(--accent-soft);border-radius:12px;border-top-color:transparent}
+.row[aria-pressed="true"] + .row{border-top-color:transparent}
 .grp + .row{border-top:0}
 .row .what{font-weight:600;font-size:15px}
 .row .what small{font:500 11px var(--font-mono);color:var(--muted);margin-inline-start:6px}
@@ -316,6 +318,51 @@ section{padding-block:56px;scroll-margin-top:16px;border-top:1px solid var(--lin
 .small{font-size:14px;color:var(--muted)}
 .mock-cap{font-size:12px;color:var(--muted);margin-top:6px}
 
+
+/* ---------- led viewer ---------- */
+.ledlab{display:grid;gap:14px}
+.viewer{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;align-self:start;background:var(--bg);padding-block:8px 6px}
+.scene{position:relative;border-radius:var(--r-md);overflow:hidden;background:var(--mock-bg)}
+.scene img{width:100%;height:auto}
+.case-scene{background:radial-gradient(70% 90% at 50% 40%,var(--stage),var(--chip))}
+.vled{position:absolute;transform:translate(-50%,-50%);background:var(--cover,transparent);border-radius:50%;z-index:1}
+.vled.round{width:2.8%;aspect-ratio:1}
+.vled.pill{width:1.8%;aspect-ratio:1.25;border-radius:35%}
+.vled.vpill{width:1.15%;aspect-ratio:.32;border-radius:4px}
+.vled.dotc{width:2.6%;aspect-ratio:1}
+.vled b{position:absolute;inset:10%;border-radius:inherit;display:none;color:var(--c);background:currentColor;box-shadow:0 0 5px 2px currentColor,0 0 16px 5px color-mix(in srgb,currentColor 55%,transparent)}
+.vled.lit b{display:block}
+.vled b.slow{animation:b-slow 2s steps(1,end) infinite}
+.vled b.fast{animation:b-slow .5s steps(1,end) infinite}
+.vled b.alt{animation:b-alt 1s steps(1,end) infinite}
+.vled b.x2{animation:b-x2 2.6s linear infinite}
+.vled b.x3{animation:b-x3 2.6s linear infinite}
+.vled b.x4{animation:b-x4 2.6s linear infinite}
+.scene .zoom{position:relative;transform-origin:var(--ox,50%) 35%;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.scene[data-focus="tx"] .zoom{--ox:0%;transform:scale(1.5)}
+.scene[data-focus="rx"] .zoom{--ox:100%;transform:scale(1.5)}
+.vcap{display:grid;gap:1px;margin-top:8px;font-size:15px;min-height:3.3em}
+.vcap b{font-size:12.5px;color:var(--accent)}
+.vcap em{font-style:normal;color:var(--muted);font-size:13.5px}
+.ledside{min-width:0}
+.ledcard{padding:4px 10px 8px}
+
+/* ---------- mimo settings ---------- */
+.mimo{display:grid;gap:18px;margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px}
+.mimo figure{margin:0;justify-self:center;width:min(230px,66%)}
+.mimo img{border-radius:24px;box-shadow:0 14px 30px var(--shadow)}
+.mset{display:grid;grid-template-columns:1fr;gap:2px;margin:14px 0 0;font-size:15px}
+.mset dt{font:600 13px var(--font-mono);direction:ltr;text-align:right}
+.mset dd{margin:0 0 10px;color:var(--muted);min-width:0}
+
+/* ---------- claude prompts ---------- */
+.prompts{display:grid;gap:10px;margin-top:12px}
+.prompt{background:var(--chip);border-radius:var(--r-md);padding:14px;display:grid;gap:8px;align-content:start}
+.prompt .pk{font-size:12.5px;font-weight:600;color:var(--accent)}
+.prompt p{font-size:15px;line-height:1.55}
+.copy{justify-self:start;border:1.5px solid var(--ink);background:transparent;border-radius:999px;padding:6px 16px;font-weight:600;cursor:pointer;min-height:40px}
+.copy.done{background:var(--ink);color:var(--bg)}
+
 /* ---------- troubleshooting ---------- */
 .search{position:relative;max-width:520px;margin-bottom:16px}
 .search input{width:100%;min-height:50px;border-radius:14px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:500 16px var(--font-body);padding:10px 44px 10px 14px}
@@ -361,8 +408,8 @@ footer ul{list-style:none;padding:0;margin:12px 0 18px;display:grid;gap:6px}
 footer a{color:var(--ink);text-underline-offset:3px}
 
 /* ---------- bottom tab bar (phones) ---------- */
-.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:repeat(5,1fr);background:color-mix(in srgb,var(--surface) 90%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:4px 4px calc(4px + env(safe-area-inset-bottom,0px))}
-.tabbar a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0 4px;text-decoration:none;color:var(--muted);font-size:11.5px;font-weight:600;min-height:52px;border-radius:12px}
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:repeat(6,1fr);background:color-mix(in srgb,var(--surface) 90%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:4px 4px calc(4px + env(safe-area-inset-bottom,0px))}
+.tabbar a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0 4px;text-decoration:none;color:var(--muted);font-size:11px;font-weight:600;min-height:52px;border-radius:12px}
 .tabbar svg{width:22px;height:22px}
 .tabbar a[aria-current="true"]{color:var(--accent)}
 
@@ -378,7 +425,7 @@ footer a{color:var(--ink);text-underline-offset:3px}
   .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
   .codes{display:none}
   .topnav{display:flex;gap:4px}
-  .topnav a{text-decoration:none;font-size:14px;font-weight:600;color:var(--muted);padding:8px 12px;border-radius:999px}
+  .topnav a{text-decoration:none;font-size:14px;font-weight:600;color:var(--muted);padding:8px 10px;border-radius:999px;white-space:nowrap}
   .topnav a:hover{color:var(--ink)}
   .topnav a[aria-current="true"]{color:var(--ink);background:var(--surface)}
   section{scroll-margin-top:76px;padding-block:80px}
@@ -387,7 +434,13 @@ footer a{color:var(--ink);text-underline-offset:3px}
   .wizard .result{position:sticky;top:84px}
   .parts{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:start;gap:36px}
   .wear{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:44px}
-  .ledgrid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+  .ledlab{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:36px}
+  .viewer{top:84px}
+  .mimo{grid-template-columns:240px minmax(0,1fr);gap:32px;padding:26px;align-items:center}
+  .mset{grid-template-columns:auto minmax(0,1fr);gap:10px 18px}
+  .mset dd{margin:0}
+  .cc-card.claude{grid-column:1/-1}
+  .prompts{grid-template-columns:1fr 1fr}
   .lab{grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding:26px;gap:28px;align-items:start}
   .cc{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
   .boxgrid{grid-template-columns:repeat(5,minmax(0,1fr))}
@@ -405,11 +458,12 @@ footer a{color:var(--ink);text-underline-offset:3px}
   <a class="brand" href="#top"><i></i>מדריך שטח <span class="mono ltr">DJI Mic Mini</span></a>
   <div class="codes mono ltr"><span>TX DMMT01</span><span>RX DMMR01</span><span>CASE DMMC01</span></div>
   <nav class="topnav" aria-label="ניווט">
-    <a href="#setup">הכנה לצילום</a>
     <a href="#parts">חלקים</a>
-    <a href="#leds">נורות</a>
     <a href="#sound">ערוצים</a>
-    <a href="#capcut">CapCut</a>
+    <a href="#wear">על הבגד</a>
+    <a href="#leds">נורות</a>
+    <a href="#capcut">עריכה</a>
+    <a href="#setup">הכנה לצילום</a>
     <a href="#fix">תקלות</a>
     <a href="#box">בקופסה</a>
   </nav>
@@ -446,54 +500,6 @@ footer a{color:var(--ink);text-underline-offset:3px}
   </div>
 </header>
 
-<!-- ================= SETUP WIZARD ================= -->
-<section id="setup">
-  <div class="head">
-    <p class="eyebrow">לפני שמצלמים</p>
-    <h2>מה מצלמים היום?</h2>
-    <p class="intro">שלוש בחירות, ומקבלים את השלבים לפי הסדר. אפשר לסמן כל שלב תוך כדי עבודה.</p>
-  </div>
-  <div class="wizard">
-    <form id="wiz" class="qs-col" onsubmit="return false" style="display:grid;gap:22px">
-      <fieldset class="q">
-        <legend>מצלמים עם</legend>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="dev" id="dev-phone" value="phone" checked><span>טלפון USB-C</span></label>
-          <label class="opt"><input type="radio" name="dev" id="dev-lightning" value="lightning"><span>אייפון עם Lightning</span></label>
-          <label class="opt"><input type="radio" name="dev" id="dev-camera" value="camera"><span>מצלמה</span></label>
-          <label class="opt"><input type="radio" name="dev" id="dev-computer" value="computer"><span>מחשב</span></label>
-          <label class="opt"><input type="radio" name="dev" id="dev-osmo" value="osmo"><span>Osmo של DJI</span></label>
-        </div>
-      </fieldset>
-      <fieldset class="q">
-        <legend>מי מדבר</legend>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="who" id="who-one" value="one" checked><span>דובר אחד</span></label>
-          <label class="opt"><input type="radio" name="who" id="who-quick" value="quick"><span>שניים, עריכה בטלפון</span></label>
-          <label class="opt"><input type="radio" name="who" id="who-desk" value="desk"><span>שניים, עריכה במחשב</span></label>
-        </div>
-      </fieldset>
-      <fieldset class="q">
-        <legend>איפה</legend>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="env" id="env-quiet" value="quiet" checked><span>בפנים, שקט</span></label>
-          <label class="opt"><input type="radio" name="env" id="env-out" value="out"><span>בחוץ</span></label>
-          <label class="opt"><input type="radio" name="env" id="env-noisy" value="noisy"><span>מקום רועש</span></label>
-        </div>
-      </fieldset>
-      <p class="small">המצב נשמר בדפדפן הזה, אז בפעם הבאה זה יפתח איפה שעצרתם.</p>
-    </form>
-    <article class="result" aria-live="polite">
-      <div class="banner" id="w-banner"><img id="w-img" src="img/vlog.webp" alt="" width="1400" height="560"><span class="cap" id="w-cap">טלפון USB-C</span></div>
-      <div class="body">
-        <div class="badges" id="w-badges"></div>
-        <ol class="steps" id="w-steps"></ol>
-        <div class="foot"><span id="w-count">0 מתוך 0 שלבים</span><button type="button" class="link-btn" id="w-reset">ניקוי הסימונים</button></div>
-      </div>
-    </article>
-  </div>
-</section>
-
 <!-- ================= PARTS ================= -->
 <section id="parts">
   <div class="head">
@@ -515,93 +521,6 @@ footer a{color:var(--ink);text-underline-offset:3px}
       <ol class="plist" id="p-list"></ol>
       <p class="pnote" id="p-note"></p>
     </div>
-  </div>
-</section>
-
-<!-- ================= WEAR ================= -->
-<section id="wear">
-  <div class="wear">
-    <div class="photo"><img src="img/collar.webp" width="1280" height="1280" alt="משדר DJI Mic Mini מוצמד לצווארון של חולצה" loading="lazy"></div>
-    <div>
-      <p class="eyebrow">על הבגד</p>
-      <h2>איפה שמים את המשדר</h2>
-      <ul class="tips">
-        <li><span class="k mono">PLACE</span><div><h3>באמצע החזה העליון</h3><p>בערך שתי כפות יד מתחת לסנטר. קרוב מדי נשמעות נשימות, רחוק מדי נכנס החדר. המיקרופון קולט לכל הכיוונים, אז לא צריך לכוון אותו לפה.</p></div></li>
-        <li><span class="k mono">MAGNET</span><div><h3>מגנט או קליפס</h3><p>בחולצה דקה: המגנט מבפנים והמשדר מבחוץ, והוא לא מושך את הבד למטה. בצווארון או בבד עבה: הקליפס. בערכה יש שני מגנטים.</p></div></li>
-        <li><span class="k mono">WIND</span><div><img src="img/windscreen-gray.webp" width="640" height="584" alt="" loading="lazy"><h3>בחוץ תמיד עם ספוג רוח</h3><p>סינון הרעשים לא מבטל רוח. את הספוג אפשר להשאיר על המשדר גם כשמחזירים אותו למארז.</p></div></li>
-        <li><span class="k mono">CLOTH</span><div><h3>לא מתחת לבגד, לא ליד שרשרת</h3><p>בד שמתחכך במיקרופון נשמע כמו רשרוש, ושרשרת או רוכסן נשמעים כמו נקישות. עדיף משדר גלוי וקול נקי.</p></div></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ================= LEDS ================= -->
-<section id="leds">
-  <div class="head">
-    <p class="eyebrow">שפת הנורות</p>
-    <h2>מה הנורה אומרת?</h2>
-    <p class="intro">הצבעים וההבהובים כאן מונפשים בדיוק כמו במכשיר. אותו צבע יכול להגיד דברים שונים במשדר ובמקלט, אז קודם בוחרים מכשיר.</p>
-  </div>
-  <div class="filter" role="group" aria-label="סינון לפי מכשיר">
-    <button type="button" aria-pressed="true" data-f="all">הכל</button>
-    <button type="button" aria-pressed="false" data-f="tx">משדר</button>
-    <button type="button" aria-pressed="false" data-f="rx">מקלט</button>
-    <button type="button" aria-pressed="false" data-f="case">מארז</button>
-  </div>
-  <div class="ledgrid">
-    <article class="ledcard" data-dev="tx">
-      <h3>משדר <span class="mono ltr">TX · STATUS LED</span></h3>
-      <div class="grp">חיבור</div>
-      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-green)"></i></div><div class="what">ירוק קבוע</div><div class="means">מחובר למקלט. הכל טוב.</div></div>
-      <div class="row"><div class="ledwrap"><i class="led slow" style="--c:var(--led-green)"></i></div><div class="what">ירוק מהבהב לאט</div><div class="means">לא מחובר למקלט. המקלט כבוי, רחוק, או שצריך לצמד מחדש.</div></div>
-      <div class="row"><div class="ledwrap"><i class="led alt" style="--c:var(--led-blue);--c2:var(--led-green)"></i></div><div class="what">כחול וירוק לסירוגין</div><div class="means">מחפש חיבור (צימוד), למקלט או ל-Bluetooth.</div></div>
-      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-blue)"></i></div><div class="what">כחול קבוע</div><div class="means">מחובר ישירות ב-Bluetooth לטלפון או ל-Osmo.</div></div>
-      <div class="row"><div class="ledwrap"><i class="led slow" style="--c:var(--led-blue)"></i></div><div class="what">כחול מהבהב לאט</div><div class="means">במצב Bluetooth, ואין מכשיר מחובר.</div></div>
-      <div class="grp">סוללה ועדכון</div>
-      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-red)"></i></div><div class="what">אדום קבוע</div><div class="means">פחות מ-10% סוללה. להחזיר למארז.</div></div>
-      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-yellow)"></i></div><div class="what">צהוב קבוע</div><div class="means">מתעדכנת קושחה. לא לכבות.</div></div>
-      <div class="grp">נורית שנייה, בצד השני</div>
-      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-yellow)"></i></div><div class="what">צהוב <small>NC</small></div><div class="means">סינון רעשים פעיל. כבויה = הסינון כבוי.</div></div>
-      <div class="grp">בזמן טעינה</div>
-      <div class="row"><div class="ledwrap"><i class="led slow" style="--c:var(--led-green)"></i></div><div class="what">הבהוב אחד לאט</div><div class="means">0 עד 25%</div></div>
-      <div class="row"><div class="ledwrap"><i class="led x2" style="--c:var(--led-green)"></i></div><div class="what">הבהוב כפול</div><div class="means">26 עד 50%</div></div>
-      <div class="row"><div class="ledwrap"><i class="led x3" style="--c:var(--led-green)"></i></div><div class="what">שלושה הבהובים</div><div class="means">51 עד 75%</div></div>
-      <div class="row"><div class="ledwrap"><i class="led x4" style="--c:var(--led-green)"></i></div><div class="what">ארבעה הבהובים</div><div class="means">76 עד 100%</div></div>
-      <div class="row"><div class="ledwrap"><i class="led off"></i></div><div class="what">כבויה</div><div class="means">טעון במלואו. בטעינה הצבע ירוק או כחול לפי המצב שבו המשדר עבד.</div></div>
-    </article>
-
-    <article class="ledcard" data-dev="rx">
-      <h3>מקלט <span class="mono ltr">RX</span></h3>
-      <div class="grp">נוריות 1 ו-2: מצב כל משדר</div>
-      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-green)"></i></div><div class="what">ירוק קבוע</div><div class="means">המשדר הזה מחובר.</div></div>
-      <div class="row"><div class="ledwrap"><i class="led off"></i></div><div class="what">כבויה</div><div class="means">המשדר הזה לא מחובר.</div></div>
-      <div class="row"><div class="ledwrap"><i class="led fast" style="--c:var(--led-green)"></i></div><div class="what">ירוק מהבהב מהר</div><div class="means">צימוד מתבצע.</div></div>
-      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-yellow)"></i></div><div class="what">צהוב קבוע</div><div class="means">סינון רעשים פעיל במשדר הזה.</div></div>
-      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-red)"></i></div><div class="what">אדום קבוע</div><div class="means">סוללת המשדר הזה מתחת ל-10%.</div></div>
-      <div class="grp">נורית המקלט: מצב הקלטה</div>
-      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-green)"></i></div><div class="what">ירוק קבוע</div><div class="means"><b>Mono</b> או <b>Safety Track</b>. לפי הצבע אי אפשר להבדיל ביניהם.</div></div>
-      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-cyan)"></i></div><div class="what">תכלת קבוע</div><div class="means"><b>Stereo</b>: כל משדר בערוץ נפרד.</div></div>
-      <div class="row"><div class="ledwrap"><i class="led slow" style="--c:var(--led-green)"></i></div><div class="what">ירוק או תכלת מהבהב לאט</div><div class="means">אין מכשיר מקליט מחובר: לא מזהה טלפון, מצלמה או מחשב.</div></div>
-      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-blue)"></i></div><div class="what">כחול קבוע</div><div class="means">מחובר ב-Bluetooth לאפליקציית DJI Mimo.</div></div>
-      <div class="row"><div class="ledwrap"><i class="led slow" style="--c:var(--led-blue)"></i></div><div class="what">כחול מהבהב לאט</div><div class="means">מוכן לחיבור Bluetooth, אין מכשיר מחובר.</div></div>
-      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-red)"></i></div><div class="what">אדום קבוע</div><div class="means">סוללת המקלט מתחת ל-10%.</div></div>
-      <div class="row"><div class="ledwrap"><i class="led" style="--c:var(--led-yellow)"></i></div><div class="what">צהוב קבוע</div><div class="means">מתעדכנת קושחה. לא לכבות.</div></div>
-      <div class="grp">בזמן טעינה</div>
-      <div class="row"><div class="ledwrap"><i class="led x2" style="--c:var(--led-green)"></i></div><div class="what">ירוק מהבהב 1 עד 4 פעמים</div><div class="means">כמו במשדר: הבהוב אחד עד 25%, ארבעה עד 100%. כבויה = מלא.</div></div>
-    </article>
-
-    <article class="ledcard" data-dev="case">
-      <h3>מארז <span class="mono ltr">4 LED</span></h3>
-      <div class="grp">רמת הסוללה של המארז</div>
-      <div class="row case"><div class="ledwrap"><span class="dots4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div><div class="what">ארבע דולקות</div><div class="means">76 עד 100%</div></div>
-      <div class="row case"><div class="ledwrap"><span class="dots4"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div><div class="what">שלוש</div><div class="means">51 עד 75%</div></div>
-      <div class="row case"><div class="ledwrap"><span class="dots4"><i class="on"></i><i class="on"></i><i></i><i></i></span></div><div class="what">שתיים</div><div class="means">26 עד 50%</div></div>
-      <div class="row case"><div class="ledwrap"><span class="dots4"><i class="on"></i><i></i><i></i><i></i></span></div><div class="what">אחת</div><div class="means">10 עד 25%</div></div>
-      <div class="row case"><div class="ledwrap"><span class="dots4"><i class="bl"></i><i></i><i></i><i></i></span></div><div class="what">אחת מהבהבת</div><div class="means">פחות מ-10%. לחבר לחשמל.</div></div>
-      <div class="grp">כשהמארז עצמו בטעינה</div>
-      <div class="row case"><div class="ledwrap"><span class="dots4"><i class="on"></i><i class="on"></i><i class="bl"></i><i></i></span></div><div class="what">הנורה האחרונה מהבהבת</div><div class="means">הנוריות הדולקות הן מה שכבר נטען. בדוגמה: 51 עד 75%.</div></div>
-      <div class="row case"><div class="ledwrap"><span class="dots4"><i></i><i></i><i></i><i></i></span></div><div class="what">כולן כבויות</div><div class="means">המארז טעון במלואו.</div></div>
-    </article>
   </div>
 </section>
 
@@ -631,7 +550,130 @@ footer a{color:var(--ink);text-underline-offset:3px}
         <div class="ch"><div class="lbl"><span>L</span><span>שמאל</span></div><div class="meter"><i id="mL"></i></div><div class="srcs" id="sL"></div></div>
         <div class="ch"><div class="lbl"><span>R</span><span>ימין</span></div><div class="meter"><i id="mR"></i></div><div class="srcs" id="sR"></div></div>
       </div>
-      <div class="warn" id="m-warn" hidden><b>!</b><span>ערוץ אחד שקט. זה בדיוק "שומעים רק באוזן אחת": משדר אחד שהוקלט ב-Stereo. עם דובר אחד מצלמים Mono, ואם כבר צולם, <a href="#capcut" style="color:inherit;font-weight:700">מתקנים ב-CapCut</a>.</span></div>
+      <div class="warn" id="m-warn" hidden><b>!</b><span>ערוץ אחד שקט. זה בדיוק "שומעים רק באוזן אחת": משדר אחד שהוקלט ב-Stereo. עם דובר אחד מצלמים Mono, ואם כבר צולם, <a href="#capcut" style="color:inherit;font-weight:700">מתקנים בעריכה</a>.</span></div>
+    </div>
+  </div>
+  <div class="mimo">
+    <figure><img src="img/mimo-settings.webp" width="326" height="680" alt="מסך הגדרות המכשיר באפליקציית DJI Mimo" loading="lazy"></figure>
+    <div>
+      <h3>ההגדרות באפליקציית DJI Mimo</h3>
+      <p class="small" style="margin-top:6px">המקלט מחובר לטלפון? פותחים את DJI Mimo, וכל ההגדרות במסך אחד.</p>
+      <dl class="mset">
+        <dt>Noise Cancellation</dt><dd>רמת סינון הרעשים: Basic לחדר עם מזגן או הד, Strong למקום רועש.</dd>
+        <dt>Audio Channel</dt><dd>Mono או Stereo. אותו דבר כמו לחיצה כפולה על Link במקלט.</dd>
+        <dt>Safety Track</dt><dd>עותק גיבוי חלש ב-6dB. עובד רק ב-Mono.</dd>
+        <dt>Low Cut</dt><dd>חותך תדרים מתחת ל-100Hz: זמזום ורעשים נמוכים.</dd>
+        <dt>Auto Off</dt><dd>המקלט נכבה אחרי 15 דקות בלי חיבור, כדי לחסוך סוללה.</dd>
+        <dt>Clipping Control</dt><dd>מוריד עוצמה לבד לפני שהקול מתעוות. כדאי שיהיה דלוק.</dd>
+        <dt>About Devices</dt><dd>גרסת הקושחה ועדכונים.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WEAR ================= -->
+<section id="wear">
+  <div class="wear">
+    <div class="photo"><img src="img/collar.webp" width="1280" height="1280" alt="משדר DJI Mic Mini מוצמד לצווארון של חולצה" loading="lazy"></div>
+    <div>
+      <p class="eyebrow">על הבגד</p>
+      <h2>איפה שמים את המשדר</h2>
+      <ul class="tips">
+        <li><span class="k mono">PLACE</span><div><h3>באמצע החזה העליון</h3><p>בערך שתי כפות יד מתחת לסנטר. קרוב מדי נשמעות נשימות, רחוק מדי נכנס החדר. המיקרופון קולט לכל הכיוונים, אז לא צריך לכוון אותו לפה.</p></div></li>
+        <li><span class="k mono">MAGNET</span><div><h3>מגנט או קליפס</h3><p>בחולצה דקה: המגנט מבפנים והמשדר מבחוץ, והוא לא מושך את הבד למטה. בצווארון או בבד עבה: הקליפס. בערכה יש שני מגנטים.</p></div></li>
+        <li><span class="k mono">WIND</span><div><img src="img/windscreen-gray.webp" width="640" height="584" alt="" loading="lazy"><h3>בחוץ תמיד עם ספוג רוח</h3><p>סינון הרעשים לא מבטל רוח. את הספוג אפשר להשאיר על המשדר גם כשמחזירים אותו למארז.</p></div></li>
+        <li><span class="k mono">CLOTH</span><div><h3>לא מתחת לבגד, לא ליד שרשרת</h3><p>בד שמתחכך במיקרופון נשמע כמו רשרוש, ושרשרת או רוכסן נשמעים כמו נקישות. עדיף משדר גלוי וקול נקי.</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LEDS ================= -->
+<section id="leds">
+  <div class="head">
+    <p class="eyebrow">שפת הנורות</p>
+    <h2>מה הנורה אומרת?</h2>
+    <p class="intro">לוחצים על שורה, והנורה הנכונה נדלקת על המכשיר האמיתי, בצבע ובהבהוב שלה. אותו צבע יכול להגיד דברים שונים במשדר ובמקלט.</p>
+  </div>
+  <div class="ledlab">
+    <div class="viewer">
+      <div class="scene" id="scene-main" data-focus="tx">
+        <div class="zoom">
+        <img src="img/led-scene.webp" width="634" height="240" alt="משדר ומקלט של DJI Mic Mini על שולחן. במשדר הנורית בצד למעלה, במקלט נוריות 1 ו-2 ונורית ליד הכיתוב MIC RX" loading="lazy">
+        <i class="vled round" data-led="tx" style="left:6%;top:24.6%;--cover:#0b1219"><b></b></i>
+        <i class="vled pill" data-led="rx1" style="left:70.2%;top:37.6%;--cover:#16202c"><b></b></i>
+        <i class="vled pill" data-led="rx2" style="left:74.9%;top:37.6%;--cover:#121a26"><b></b></i>
+        <i class="vled vpill" data-led="rxs" style="left:80.1%;top:58.4%;--cover:#08121b"><b></b></i>
+        </div>
+      </div>
+      <div class="scene case-scene" id="scene-case" hidden>
+        <img src="img/case-leds.webp" width="880" height="367" alt="החלק הקדמי של מארז הטעינה, עם ארבע נוריות סוללה" loading="lazy">
+        <i class="vled dotc" data-led="c1" style="left:38.6%;top:58.6%"><b></b></i>
+        <i class="vled dotc" data-led="c2" style="left:46%;top:58.6%"><b></b></i>
+        <i class="vled dotc" data-led="c3" style="left:53.6%;top:58.6%"><b></b></i>
+        <i class="vled dotc" data-led="c4" style="left:61.4%;top:58.6%"><b></b></i>
+      </div>
+      <p class="vcap" id="vcap" aria-live="polite"></p>
+    </div>
+    <div class="ledside">
+      <div class="filter" role="group" aria-label="בחירת מכשיר">
+        <button type="button" aria-pressed="true" data-f="tx">משדר</button>
+        <button type="button" aria-pressed="false" data-f="rx">מקלט</button>
+        <button type="button" aria-pressed="false" data-f="case">מארז</button>
+      </div>
+
+      <article class="ledcard" data-dev="tx">
+        <h3>משדר <span class="mono ltr">TX</span></h3>
+        <div class="grp">נורית המצב, בצד למעלה</div>
+        <button type="button" class="row" data-led="tx" data-c="green" data-p="solid"><span class="ledwrap"><i class="led" style="--c:var(--led-green)"></i></span><span class="what">ירוק קבוע</span><span class="means">מחובר למקלט. הכל טוב.</span></button>
+        <button type="button" class="row" data-led="tx" data-c="green" data-p="slow"><span class="ledwrap"><i class="led slow" style="--c:var(--led-green)"></i></span><span class="what">ירוק מהבהב לאט</span><span class="means">לא מחובר למקלט. המקלט כבוי, רחוק, או שצריך לצמד מחדש.</span></button>
+        <button type="button" class="row" data-led="tx" data-c="blue" data-c2="green" data-p="alt"><span class="ledwrap"><i class="led alt" style="--c:var(--led-blue);--c2:var(--led-green)"></i></span><span class="what">כחול וירוק לסירוגין</span><span class="means">מחפש חיבור (צימוד), למקלט או ישירות לטלפון.</span></button>
+        <button type="button" class="row" data-led="tx" data-c="blue" data-p="solid"><span class="ledwrap"><i class="led" style="--c:var(--led-blue)"></i></span><span class="what">כחול קבוע</span><span class="means">מחובר ישירות לטלפון ב-Bluetooth, בלי המקלט.</span></button>
+        <button type="button" class="row" data-led="tx" data-c="blue" data-p="slow"><span class="ledwrap"><i class="led slow" style="--c:var(--led-blue)"></i></span><span class="what">כחול מהבהב לאט</span><span class="means">במצב Bluetooth, ואין טלפון מחובר.</span></button>
+        <button type="button" class="row" data-led="tx" data-c="red" data-p="solid"><span class="ledwrap"><i class="led" style="--c:var(--led-red)"></i></span><span class="what">אדום קבוע</span><span class="means">פחות מ-10% סוללה. להחזיר למארז.</span></button>
+        <button type="button" class="row" data-led="tx" data-c="yellow" data-p="solid"><span class="ledwrap"><i class="led" style="--c:var(--led-yellow)"></i></span><span class="what">צהוב קבוע</span><span class="means">מתעדכנת קושחה. לא לכבות.</span></button>
+        <div class="grp">נורית סינון הרעשים, בצד השני</div>
+        <button type="button" class="row" data-led="none" data-c="yellow" data-p="solid" data-note="הנורית הזאת בצד השני של המשדר, מול הכפתורים, ולא רואים אותה בתמונה."><span class="ledwrap"><i class="led" style="--c:var(--led-yellow)"></i></span><span class="what">צהוב</span><span class="means">סינון רעשים פעיל. כבויה = הסינון כבוי.</span></button>
+        <div class="grp">בזמן טעינה, נורית המצב</div>
+        <button type="button" class="row" data-led="tx" data-c="green" data-p="slow"><span class="ledwrap"><i class="led slow" style="--c:var(--led-green)"></i></span><span class="what">הבהוב אחד לאט</span><span class="means">0 עד 25%</span></button>
+        <button type="button" class="row" data-led="tx" data-c="green" data-p="x2"><span class="ledwrap"><i class="led x2" style="--c:var(--led-green)"></i></span><span class="what">הבהוב כפול</span><span class="means">26 עד 50%</span></button>
+        <button type="button" class="row" data-led="tx" data-c="green" data-p="x3"><span class="ledwrap"><i class="led x3" style="--c:var(--led-green)"></i></span><span class="what">שלושה הבהובים</span><span class="means">51 עד 75%</span></button>
+        <button type="button" class="row" data-led="tx" data-c="green" data-p="x4"><span class="ledwrap"><i class="led x4" style="--c:var(--led-green)"></i></span><span class="what">ארבעה הבהובים</span><span class="means">76 עד 100%</span></button>
+        <button type="button" class="row" data-led="tx" data-c="off" data-p="off"><span class="ledwrap"><i class="led off"></i></span><span class="what">כבויה</span><span class="means">טעון במלואו. בטעינה הצבע ירוק או כחול, לפי המצב שבו המשדר עבד.</span></button>
+      </article>
+
+      <article class="ledcard" data-dev="rx" hidden>
+        <h3>מקלט <span class="mono ltr">RX</span></h3>
+        <div class="grp">נוריות 1 ו-2: מצב כל משדר</div>
+        <button type="button" class="row" data-led="rx1" data-c="green" data-p="solid"><span class="ledwrap"><i class="led" style="--c:var(--led-green)"></i></span><span class="what">ירוק קבוע</span><span class="means">המשדר הזה מחובר.</span></button>
+        <button type="button" class="row" data-led="rx1" data-c="off" data-p="off"><span class="ledwrap"><i class="led off"></i></span><span class="what">כבויה</span><span class="means">המשדר הזה לא מחובר.</span></button>
+        <button type="button" class="row" data-led="rx1" data-c="green" data-p="fast"><span class="ledwrap"><i class="led fast" style="--c:var(--led-green)"></i></span><span class="what">ירוק מהבהב מהר</span><span class="means">צימוד מתבצע.</span></button>
+        <button type="button" class="row" data-led="rx1" data-c="yellow" data-p="solid"><span class="ledwrap"><i class="led" style="--c:var(--led-yellow)"></i></span><span class="what">צהוב קבוע</span><span class="means">סינון רעשים פעיל במשדר הזה.</span></button>
+        <button type="button" class="row" data-led="rx1" data-c="red" data-p="solid"><span class="ledwrap"><i class="led" style="--c:var(--led-red)"></i></span><span class="what">אדום קבוע</span><span class="means">הסוללה של המשדר הזה מתחת ל-10%.</span></button>
+        <div class="grp">נורית המקלט, ליד MIC RX: מצב הקלטה</div>
+        <button type="button" class="row" data-led="rxs" data-c="green" data-p="solid"><span class="ledwrap"><i class="led" style="--c:var(--led-green)"></i></span><span class="what">ירוק קבוע</span><span class="means"><b>Mono</b>. גם ב-Safety Track היא ירוקה.</span></button>
+        <button type="button" class="row" data-led="rxs" data-c="cyan" data-p="solid"><span class="ledwrap"><i class="led" style="--c:var(--led-cyan)"></i></span><span class="what">תכלת קבוע</span><span class="means"><b>Stereo</b>: כל משדר בערוץ נפרד.</span></button>
+        <button type="button" class="row" data-led="rxs" data-c="green" data-p="slow"><span class="ledwrap"><i class="led slow" style="--c:var(--led-green)"></i></span><span class="what">ירוק או תכלת מהבהב לאט</span><span class="means">המקלט לא מזהה את הטלפון. בודקים שהמתאם נכנס עד הסוף.</span></button>
+        <button type="button" class="row" data-led="rxs" data-c="blue" data-p="solid"><span class="ledwrap"><i class="led" style="--c:var(--led-blue)"></i></span><span class="what">כחול קבוע</span><span class="means">מחובר ב-Bluetooth לאפליקציית DJI Mimo.</span></button>
+        <button type="button" class="row" data-led="rxs" data-c="blue" data-p="slow"><span class="ledwrap"><i class="led slow" style="--c:var(--led-blue)"></i></span><span class="what">כחול מהבהב לאט</span><span class="means">מוכן לחיבור Bluetooth, אין טלפון מחובר.</span></button>
+        <button type="button" class="row" data-led="rxs" data-c="red" data-p="solid"><span class="ledwrap"><i class="led" style="--c:var(--led-red)"></i></span><span class="what">אדום קבוע</span><span class="means">הסוללה של המקלט מתחת ל-10%.</span></button>
+        <button type="button" class="row" data-led="rxs" data-c="yellow" data-p="solid"><span class="ledwrap"><i class="led" style="--c:var(--led-yellow)"></i></span><span class="what">צהוב קבוע</span><span class="means">מתעדכנת קושחה. לא לכבות.</span></button>
+        <div class="grp">בזמן טעינה, נורית המקלט</div>
+        <button type="button" class="row" data-led="rxs" data-c="green" data-p="x2"><span class="ledwrap"><i class="led x2" style="--c:var(--led-green)"></i></span><span class="what">ירוק מהבהב 1 עד 4 פעמים</span><span class="means">כמו במשדר: הבהוב אחד עד 25%, ארבעה עד 100%. כבויה = מלא.</span></button>
+      </article>
+
+      <article class="ledcard" data-dev="case" hidden>
+        <h3>מארז <span class="mono ltr">4 LED</span></h3>
+        <div class="grp">כמה סוללה נשארה במארז</div>
+        <button type="button" class="row case" data-dots="on,on,on,on"><span class="ledwrap"><span class="dots4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span><span class="what">ארבע דולקות</span><span class="means">76 עד 100%</span></button>
+        <button type="button" class="row case" data-dots="on,on,on,"><span class="ledwrap"><span class="dots4"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span><span class="what">שלוש</span><span class="means">51 עד 75%</span></button>
+        <button type="button" class="row case" data-dots="on,on,,"><span class="ledwrap"><span class="dots4"><i class="on"></i><i class="on"></i><i></i><i></i></span></span><span class="what">שתיים</span><span class="means">26 עד 50%</span></button>
+        <button type="button" class="row case" data-dots="on,,,"><span class="ledwrap"><span class="dots4"><i class="on"></i><i></i><i></i><i></i></span></span><span class="what">אחת</span><span class="means">10 עד 25%</span></button>
+        <button type="button" class="row case" data-dots="blink,,,"><span class="ledwrap"><span class="dots4"><i class="bl"></i><i></i><i></i><i></i></span></span><span class="what">אחת מהבהבת</span><span class="means">פחות מ-10%. לחבר לחשמל.</span></button>
+        <div class="grp">כשהמארז עצמו בטעינה</div>
+        <button type="button" class="row case" data-dots="on,on,blink,"><span class="ledwrap"><span class="dots4"><i class="on"></i><i class="on"></i><i class="bl"></i><i></i></span></span><span class="what">האחרונה מהבהבת</span><span class="means">הדולקות הן מה שכבר נטען. בדוגמה: 51 עד 75%.</span></button>
+        <button type="button" class="row case" data-dots=",,,"><span class="ledwrap"><span class="dots4"><i></i><i></i><i></i><i></i></span></span><span class="what">כולן כבויות</span><span class="means">המארז טעון במלואו.</span></button>
+      </article>
     </div>
   </div>
 </section>
@@ -639,14 +681,14 @@ footer a{color:var(--ink);text-underline-offset:3px}
 <!-- ================= CAPCUT ================= -->
 <section id="capcut">
   <div class="head">
-    <p class="eyebrow">בעריכה</p>
-    <h2>קול רק באוזן אחת? מתקנים ב-CapCut</h2>
-    <p class="intro">זה לא מיקרופון מקולקל. הקובץ הוקלט ב-Stereo, וכל משדר נכנס לצד אחר. ב-CapCut במחשב יש אפשרות שמעתיקה ערוץ אחד לשני.</p>
+    <p class="eyebrow">תיקון בעריכה</p>
+    <h2>קול רק באוזן אחת? מתקנים במחשב</h2>
+    <p class="intro">זה לא מיקרופון מקולקל. הקובץ הוקלט ב-Stereo, וכל משדר נכנס לצד אחר. עורכים במחשב: ב-CapCut בכמה קליקים, או שנותנים לקלוד לעשות את זה.</p>
   </div>
   <div class="cc">
     <article class="cc-card">
-      <span class="tag">דובר אחד, צד אחד שקט</span>
-      <h3>שלושה קליקים</h3>
+      <span class="tag">CapCut · דובר אחד</span>
+      <h3>צד אחד שקט</h3>
       <p class="small" style="margin-top:6px">מאיזה צד שומעים את הקול?</p>
       <div class="side" role="group" aria-label="צד הקול">
         <button type="button" data-side="left" aria-pressed="true">רק משמאל</button>
@@ -666,7 +708,7 @@ footer a{color:var(--ink);text-underline-offset:3px}
       <p class="mock-cap">המחשה של הפאנל. המיקום המדויק יכול לזוז מעט בין גרסאות.</p>
     </article>
     <article class="cc-card">
-      <span class="tag">שני דוברים ב-Stereo</span>
+      <span class="tag">CapCut · שני דוברים</span>
       <h3>כל דובר ברצועה משלו</h3>
       <ol>
         <li>קליק ימני על הקליפ ← <span class="m">Separate audio</span>, כדי שהקול יהיה ברצועה נפרדת.</li>
@@ -682,7 +724,62 @@ footer a{color:var(--ink);text-underline-offset:3px}
           <div class="trk"><span class="nm">Audio 2</span><span class="clip a2">Fill left with right · TX2</span></div>
         </div>
       </div>
-      <p class="mock-cap">ההוראות ל-CapCut במחשב. באפליקציה בטלפון האפשרות לא מתועדת, אז מי שעורך בטלפון: לצלם Mono מראש.</p>
+      <p class="mock-cap">ההוראות ל-CapCut במחשב.</p>
+    </article>
+    <article class="cc-card claude">
+      <span class="tag">עם קלוד</span>
+      <h3>מבקשים במילים</h3>
+      <p class="small" style="margin-top:6px">פותחים את קלוד במחשב, גוררים את הסרטון לצ'אט ומדביקים אחת מהבקשות:</p>
+      <div class="prompts">
+        <div class="prompt">
+          <span class="pk">דובר אחד, צד אחד שקט</span>
+          <p id="pr1">הסרטון הזה צולם עם DJI Mic Mini, והקול נשמע רק בצד אחד. תעתיק את הערוץ שיש בו קול לשני הצדדים ותשמור עותק חדש, בלי לגעת בתמונה.</p>
+          <button type="button" class="copy" data-copy="pr1">העתקה</button>
+        </div>
+        <div class="prompt">
+          <span class="pk">שני דוברים ב-Stereo</span>
+          <p id="pr2">הסרטון הזה צולם ב-Stereo עם שני משדרים של DJI Mic Mini: דובר אחד בערוץ השמאלי והשני בימני. תפריד כל דובר לרצועה משלו שנשמעת בשתי האוזניים, תאזן את העוצמות ביניהם, ותבנה לי פרויקט CapCut שאפשר להמשיך לערוך.</p>
+          <button type="button" class="copy" data-copy="pr2">העתקה</button>
+        </div>
+      </div>
+      <p class="mock-cap">הבקשה אומרת לשמור עותק חדש, אז המקור נשאר כמו שהוא. פרויקט CapCut נפתח בקאפקאט וממשיכים לערוך שם.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ================= SETUP WIZARD ================= -->
+<section id="setup">
+  <div class="head">
+    <p class="eyebrow">לפני שמצלמים</p>
+    <h2>מה מצלמים היום?</h2>
+    <p class="intro">מצלמים בטלפון, עם המקלט מחובר ב-USB-C. שתי בחירות, ומקבלים את השלבים לפי הסדר. אפשר לסמן כל שלב תוך כדי עבודה.</p>
+  </div>
+  <div class="wizard">
+    <form id="wiz" onsubmit="return false" style="display:grid;gap:22px">
+      <fieldset class="q">
+        <legend>מי מדבר</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="who" id="who-one" value="one" checked><span>דובר אחד</span></label>
+          <label class="opt"><input type="radio" name="who" id="who-two" value="two"><span>שני דוברים</span></label>
+        </div>
+      </fieldset>
+      <fieldset class="q">
+        <legend>איפה</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="env" id="env-quiet" value="quiet" checked><span>בפנים, שקט</span></label>
+          <label class="opt"><input type="radio" name="env" id="env-out" value="out"><span>בחוץ</span></label>
+          <label class="opt"><input type="radio" name="env" id="env-noisy" value="noisy"><span>מקום רועש</span></label>
+        </div>
+      </fieldset>
+      <p class="small">הבחירות והסימונים נשמרים בדפדפן הזה, אז בפעם הבאה זה יפתח איפה שעצרתם.</p>
+    </form>
+    <article class="result" aria-live="polite">
+      <div class="banner"><img src="img/rx-on-phone.webp" alt="המקלט מחובר לתחתית של טלפון" width="580" height="330"><span class="cap" id="w-cap">טלפון USB-C · דובר אחד</span></div>
+      <div class="body">
+        <div class="badges" id="w-badges"></div>
+        <ol class="steps" id="w-steps"></ol>
+        <div class="foot"><span id="w-count">0 מתוך 0 שלבים</span><button type="button" class="link-btn" id="w-reset">ניקוי הסימונים</button></div>
+      </div>
     </article>
   </div>
 </section>
@@ -710,9 +807,9 @@ footer a{color:var(--ink);text-underline-offset:3px}
     <details open data-k="אוזן צד אחד שמאל ימין stereo סטריאו ערוץ">
       <summary>שומעים רק באוזן אחת</summary>
       <div class="a">
-        <p>המקלט כנראה ב-<b>Stereo</b> (הנורית שלו תכלת), ועם משדר אחד הקול נכנס רק לצד אחד.</p>
+        <p>המקלט כנראה ב-<b>Stereo</b> (הנורית ליד MIC RX תכלת), ועם משדר אחד הקול נכנס רק לצד אחד.</p>
         <p><b>לפני הצילום:</b> לחיצה כפולה על Link במקלט, עד שהנורית ירוקה (Mono).</p>
-        <p><b>כבר צולם:</b> <a href="#capcut">מתקנים ב-CapCut</a> עם Channels.</p>
+        <p><b>כבר צולם:</b> <a href="#capcut">מתקנים בעריכה</a>, ב-CapCut או עם קלוד.</p>
       </div>
     </details>
     <details data-k="נורית 1 2 כבויה לא מתחבר צימוד משדר מקלט חיבור">
@@ -726,36 +823,36 @@ footer a{color:var(--ink);text-underline-offset:3px}
     <details data-k="כחול bluetooth בלוטות משדר מהבהב נורית">
       <summary>המשדר מהבהב כחול ולא מתחבר למקלט</summary>
       <div class="a">
-        <p>המשדר במצב Bluetooth, ומחפש טלפון או Osmo. כחול קבוע אומר שהוא כבר מחובר ישירות לטלפון, ואז הוא לא שולח למקלט.</p>
+        <p>המשדר במצב Bluetooth ומחפש טלפון. כחול קבוע אומר שהוא כבר מחובר ישירות לטלפון, ואז הוא לא שולח למקלט.</p>
         <p>מכניסים אותו ואת המקלט למארז, והם מתחברים מחדש זה לזה. אם הוא מחובר לטלפון, קודם מנתקים אותו בהגדרות ה-Bluetooth של הטלפון.</p>
       </div>
     </details>
-    <details data-k="נורית מקלט מהבהבת ירוק תכלת לא מזהה מצלמה טלפון כבל מתאם">
-      <summary>נורית המקלט מהבהבת לאט</summary>
+    <details data-k="נורית מקלט מהבהבת ירוק תכלת לא מזהה טלפון מתאם usb">
+      <summary>הנורית ליד MIC RX מהבהבת לאט</summary>
       <div class="a">
-        <p>המקלט לא מזהה מכשיר מקליט. בודקים שהכבל או המתאם נכנסו עד הסוף, ושהמצלמה או הטלפון דלוקים.</p>
-        <p>במצלמה: הכבל מחובר לכניסת המיקרופון (MIC), לא לכניסת האוזניות.</p>
+        <p>המקלט לא מזהה את הטלפון. בודקים שהמתאם נכנס עד הסוף, גם למקלט וגם לטלפון.</p>
+        <p>כיסוי עבה לטלפון יכול לעצור את המתאם לפני הסוף. אם צריך, מורידים את הכיסוי.</p>
       </div>
     </details>
-    <details data-k="טלפון לא מזהה אפליקציה אייפון lightning מתחבר usb">
+    <details data-k="טלפון לא מזהה אפליקציה מתחבר usb מתאם">
       <summary>הטלפון לא מקבל את המיקרופון</summary>
       <div class="a">
         <p>מוציאים את המקלט ומכניסים שוב. מנסים במצלמה של הטלפון עצמו, כדי לדעת אם הבעיה באפליקציה.</p>
-        <p>באייפון עם Lightning צריך מתאם Lightning, שנמכר בנפרד. בלי מתאם: מחברים משדר ישירות ב-Bluetooth, ובוחרים <span class="ltr">DJI Mic Mini-XXXXXX</span> ברשימת המכשירים של הטלפון.</p>
+        <p>הנורית ליד MIC RX צריכה להיות קבועה. מהבהבת? המקלט לא רואה את הטלפון, ראו את התקלה הקודמת.</p>
       </div>
     </details>
-    <details data-k="עיוות צורם קליפינג חזק gain עוצמה">
+    <details data-k="עיוות צורם קליפינג חזק gain עוצמה clipping">
       <summary>הקול צורם או מתעוות</summary>
       <div class="a">
-        <p>מורידים את ה-gain במצלמה ומעלים את ה-gain במקלט בגלגלת. כך DJI ממליצים, וזה מונע עיוות.</p>
-        <p>ההגבלה האוטומטית (Automatic Limiting) מגינה מקפיצות פתאומיות. היא דלוקה כברירת מחדל, ואפשר לבדוק אותה באפליקציית DJI Mimo.</p>
+        <p>מורידים את ה-gain בגלגלת של המקלט.</p>
+        <p>באפליקציית DJI Mimo בודקים ש-<b>Clipping Control</b> דלוק. הוא מוריד עוצמה לבד לפני שהקול מתעוות.</p>
         <p>באירוע עם צעקות או מוזיקה: <a href="#sound">Safety Track</a>. עיוות שכבר הוקלט כמעט אי אפשר לתקן.</p>
       </div>
     </details>
-    <details data-k="רוח רעש בחוץ ספוג">
+    <details data-k="רוח רעש בחוץ ספוג low cut">
       <summary>רעשי רוח</summary>
       <div class="a">
-        <p>מלבישים ספוג רוח. סינון הרעשים עוזר לרעשי רקע כמו מזגן ותנועה, אבל לא מעלים רוח.</p>
+        <p>מלבישים ספוג רוח. סינון הרעשים עוזר לרעשי רקע כמו מזגן ותנועה, אבל לא מעלים רוח. ב-DJI Mimo אפשר להדליק גם Low Cut, שחותך רעשים נמוכים.</p>
       </div>
     </details>
     <details data-k="רשרוש בגד חיכוך נקישות שרשרת">
@@ -768,19 +865,19 @@ footer a{color:var(--ink);text-underline-offset:3px}
       <summary>יש רעש רקע (מזגן, מאוורר, רחוב)</summary>
       <div class="a">
         <p>לחיצה קצרה על כפתור ההפעלה במשדר מדליקה סינון רעשים. נורית צהובה בצד = פעיל.</p>
-        <p>באפליקציית DJI Mimo בוחרים רמה: <b>Basic</b> לחדר עם מזגן או הד, <b>Strong</b> למקום רועש. במשדר שמחובר ישירות לטלפון הרמה קבועה על Strong.</p>
+        <p>באפליקציית DJI Mimo בוחרים רמה: <b>Basic</b> לחדר עם מזגן או הד, <b>Strong</b> למקום רועש.</p>
       </div>
     </details>
-    <details data-k="כבה נכבה לבד סוללה כיבוי אוטומטי">
+    <details data-k="כבה נכבה לבד סוללה כיבוי אוטומטי auto off">
       <summary>המשדר או המקלט כבו לבד</summary>
       <div class="a">
-        <p>אם הופעל כיבוי אוטומטי באפליקציית DJI Mimo, הם נכבים אחרי 15 דקות בלי חיבור. אחרת, כנראה נגמרה הסוללה (לפני כן הנורית אדומה).</p>
+        <p>אם <b>Auto Off</b> דלוק באפליקציית DJI Mimo, הם נכבים אחרי 15 דקות בלי חיבור. אחרת, כנראה נגמרה הסוללה (לפני כן הנורית אדומה).</p>
       </div>
     </details>
     <details data-k="הקלטה פנימית זיכרון בלי טלפון גיבוי">
-      <summary>אפשר להקליט בלי טלפון או מצלמה?</summary>
+      <summary>אפשר להקליט בלי טלפון?</summary>
       <div class="a">
-        <p>לא. למשדר אין זיכרון פנימי, הוא רק משדר. תמיד צריך מכשיר שמקליט בפועל.</p>
+        <p>לא. למשדר אין זיכרון פנימי, הוא רק משדר. תמיד צריך טלפון שמקליט בפועל.</p>
       </div>
     </details>
     <details data-k="צהוב נורית עדכון קושחה סינון">
@@ -789,11 +886,11 @@ footer a{color:var(--ink);text-underline-offset:3px}
         <p>בנורית הקטנה בצד המשדר: סינון רעשים פעיל. בנורית המצב הראשית, צהוב קבוע: מתעדכנת קושחה, לא לכבות.</p>
       </div>
     </details>
-    <details data-k="עדכון קושחה firmware mimo אפליקציה">
+    <details data-k="עדכון קושחה firmware mimo אפליקציה אייפון">
       <summary>איך מעדכנים קושחה</summary>
       <div class="a">
-        <p>באפליקציית DJI Mimo: נכנסים להגדרות המכשיר ← <span class="ltr">About Devices</span> ← לוחצים על גרסת הקושחה.</p>
-        <p><b>באייפון</b> העדכון עובד רק ב-Bluetooth: מנתקים את המתאם, מחברים את המשדר דרך הגדרות ה-Bluetooth, ואת המקלט מעבירים למצב Bluetooth בלחיצה של 6 שניות על כפתור ההפעלה כשהוא כבוי.</p>
+        <p>באפליקציית DJI Mimo: הגדרות המכשיר ← <span class="ltr">About Devices</span> ← לוחצים על גרסת הקושחה.</p>
+        <p><b>באייפון</b> העדכון עובד רק ב-Bluetooth, גם כשיש USB-C: מנתקים את המתאם, מחברים את המשדר דרך הגדרות ה-Bluetooth, ואת המקלט מעבירים למצב Bluetooth בלחיצה של 6 שניות על כפתור ההפעלה כשהוא כבוי.</p>
       </div>
     </details>
   </div>
@@ -819,7 +916,7 @@ footer a{color:var(--ink);text-underline-offset:3px}
     <figure class="item"><div class="ph"><img src="img/magnet.webp" width="463" height="640" alt="" loading="lazy"></div><figcaption>מגנט לקליפס <span class="mono ltr">×2</span></figcaption></figure>
     <figure class="item"><div class="ph"><img src="img/pouch.webp" width="640" height="496" alt="" loading="lazy"></div><figcaption>נרתיק <span class="mono ltr">×1</span></figcaption></figure>
   </div>
-  <p class="pnote boxnote">מתאם Lightning לאייפון ישן לא נמצא בקופסה ונמכר בנפרד.</p>
+  <p class="pnote boxnote">כבל ה-3.5 מ״מ מיועד למצלמה. כשמצלמים בטלפון הוא נשאר בנרתיק.</p>
 </section>
 
 <!-- ================= SPECS ================= -->
@@ -843,7 +940,6 @@ footer a{color:var(--ink);text-underline-offset:3px}
     <dt>כיווניות</dt><dd>Omni</dd>
     <dt>עוצמת קול מקסימלית</dt><dd>120 dB SPL</dd>
     <dt>תחום תדרים</dt><dd>20 Hz to 20 kHz</dd>
-    <dt>חיבור ישיר ל-Osmo, זמן סוללה</dt><dd>7 to 8 h</dd>
     <dt>טמפרטורת עבודה</dt><dd>-10 to 45 °C</dd>
     <dt>דגמים</dt><dd>TX DMMT01 · RX DMMR01 · Case DMMC01</dd>
     <dt>אלחוט</dt><dd>2.4 GHz · Bluetooth 5.3</dd>
@@ -861,7 +957,7 @@ footer a{color:var(--ink);text-underline-offset:3px}
       <li>כפתורים, נורות וחיבורים: <a href="https://dl.djicdn.com/downloads/DJI_Mic_Mini/20251230/DJI_Mic_Mini_User_Manual_EN.pdf" target="_blank" rel="noopener">מדריך המשתמש הרשמי של DJI (PDF)</a></li>
       <li>משקל, טווח וסוללה: <a href="https://www.dji.com/mic-mini/specs" target="_blank" rel="noopener">המפרט הרשמי</a></li>
       <li>מצבי הקלטה, סינון רעשים וכיבוי אוטומטי: <a href="https://www.dji.com/mic-mini/faq" target="_blank" rel="noopener">שאלות ותשובות של DJI</a></li>
-      <li>טבלת gain לפי מצלמה ורשימת תאימות: <a href="https://www.dji.com/mic-mini/downloads" target="_blank" rel="noopener">עמוד ההורדות</a></li>
+      <li>רשימת הטלפונים התואמים: <a href="https://www.dji.com/mic-mini/downloads" target="_blank" rel="noopener">עמוד ההורדות</a></li>
       <li>תיקון ערוצים ב-CapCut: <a href="https://rri.co.id/iptek/864203/mengatasi-audio-yang-terdengar-sebelah-menggunakan-capcut" target="_blank" rel="noopener">כתבה של RRI</a></li>
     </ul>
     <p>מדריך עצמאי לצוות, לא מטעם DJI. תמונות המוצר: DJI. מתאים למקלט הרגיל של Mic Mini. המקלט לטלפון (Mobile Receiver) הוא מוצר אחר, וחלק מהפעולות בו שונות.</p>
@@ -869,10 +965,11 @@ footer a{color:var(--ink);text-underline-offset:3px}
 </footer>
 
 <nav class="tabbar" aria-label="ניווט מהיר">
-  <a href="#setup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6h10M10 12h10M10 18h10"/><path d="M3.5 6l1.4 1.4L7.5 4.8M3.5 12l1.4 1.4 2.6-2.6M3.5 18l1.4 1.4 2.6-2.6"/></svg>הכנה</a>
   <a href="#parts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4.5" y="4.5" width="15" height="15" rx="4.5"/><circle cx="15.5" cy="8.5" r="1.4" fill="currentColor" stroke="none"/><path d="M4.5 10v4" stroke-linecap="round"/></svg>חלקים</a>
-  <a href="#leds"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.6"/><path d="M12 3v2.2M12 18.8V21M3 12h2.2M18.8 12H21M5.6 5.6l1.6 1.6M16.8 16.8l1.6 1.6M5.6 18.4l1.6-1.6M16.8 7.2l1.6-1.6"/></svg>נורות</a>
   <a href="#sound"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 12h1.5M7 8.5v7M11 5v14M15 8v8M19 10.5v3"/></svg>ערוצים</a>
+  <a href="#leds"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.6"/><path d="M12 3v2.2M12 18.8V21M3 12h2.2M18.8 12H21M5.6 5.6l1.6 1.6M16.8 16.8l1.6 1.6M5.6 18.4l1.6-1.6M16.8 7.2l1.6-1.6"/></svg>נורות</a>
+  <a href="#capcut"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6.5" cy="6.5" r="2.7"/><circle cx="6.5" cy="17.5" r="2.7"/><path d="M8.6 8.3L20 18M8.6 15.7L20 6"/></svg>עריכה</a>
+  <a href="#setup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6h10M10 12h10M10 18h10"/><path d="M3.5 6l1.4 1.4L7.5 4.8M3.5 12l1.4 1.4 2.6-2.6M3.5 18l1.4 1.4 2.6-2.6"/></svg>הכנה</a>
   <a href="#fix"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.4c-.6.3-1 .8-1 1.5v.5"/><circle cx="12" cy="16.6" r=".6" fill="currentColor"/></svg>תקלות</a>
 </nav>
 
@@ -889,8 +986,8 @@ const LED = c => `<span class="dot" style="--c:var(--led-${c})"></span>`;
 
 /* ================= active nav ================= */
 const navLinks = $$('.tabbar a, .topnav a');
-const secs = ['setup','parts','wear','leds','sound','capcut','fix','box','specs'].map(id => document.getElementById(id));
-const navFor = {wear:'parts', capcut:'sound', box:'fix', specs:'fix'};
+const secs = ['parts','sound','wear','leds','capcut','setup','fix','box','specs'].map(id => document.getElementById(id));
+const navFor = {wear:'sound', box:'fix', specs:'fix'};
 if ('IntersectionObserver' in window){
   const io = new IntersectionObserver(es => {
     es.forEach(e => {
@@ -908,96 +1005,53 @@ if ('IntersectionObserver' in window){
 }
 
 /* ================= setup wizard ================= */
-const DEV = {
-  phone:     {label:'טלפון USB-C', conn:'USB-C', img:'img/vlog.webp', w:1400, h:560},
-  lightning: {label:'אייפון עם Lightning', conn:'Lightning', img:'img/vlog.webp', w:1400, h:560},
-  camera:    {label:'מצלמה', conn:'כבל 3.5 מ״מ', img:'img/on-camera.webp', w:982, h:960},
-  computer:  {label:'מחשב', conn:'USB-C', img:'img/rx.webp', w:1100, h:723, cut:true},
-  osmo:      {label:'Osmo של DJI', conn:'ישיר, בלי מקלט', img:'img/osmo.webp', w:1386, h:960}
-};
 const wiz = $('#wiz');
-const saved = store.get('wiz', null);
+const saved = store.get('wiz2', null);
 if (saved){
-  ['dev','who','env'].forEach(k => { const el = wiz.querySelector(`input[name="${k}"][value="${saved[k]}"]`); if (el) el.checked = true; });
+  ['who','env'].forEach(k => { const el = wiz.querySelector(`input[name="${k}"][value="${saved[k]}"]`); if (el) el.checked = true; });
 }
-function state(){ const f = new FormData(wiz); return {dev:f.get('dev'), who:f.get('who'), env:f.get('env')}; }
+function state(){ const f = new FormData(wiz); return {who:f.get('who'), env:f.get('env')}; }
 
 function buildSteps(s){
-  const two = s.who !== 'one';
+  const two = s.who === 'two';
   const L = [];
-  const osmo = s.dev === 'osmo';
-  if (osmo){
-    L.push(`מוציאים מהמארז ${two ? 'את שני המשדרים' : 'משדר אחד'}. המקלט נשאר במארז: ה-Osmo מתחבר ישירות למשדר.`);
-    L.push(`ב-Osmo: הגדרות מערכת ← <b>Wireless Microphone</b>, ועוקבים אחרי ההוראות במסך.`);
-    L.push(`במשדר: לחיצה של 2 שניות על <b>Link</b>, עד שהנורית מהבהבת כחול וירוק לסירוגין. ${LED('blue')} כחול קבוע = מחובר.${two ? ' חוזרים על זה עם המשדר השני.' : ''}<span class="note">${two ? 'שני משדרים: Osmo Pocket 3 ו-Osmo Action 5 Pro. ל-Osmo Action 4 מתחבר משדר אחד בלבד.' : 'עובד עם Osmo Pocket 3, Osmo Action 5 Pro, Osmo Action 4 ו-Osmo 360.'}</span>`);
-  } else {
-    L.push(`מוציאים מהמארז ${two ? 'את שני המשדרים' : 'משדר אחד'} ואת המקלט. הם נדלקים לבד, וכבר מחוברים זה לזה מהמפעל.<span class="note">${LED('red')} נורית אדומה = פחות מ-10% סוללה. אז קודם להטעין.</span>`);
-    if (s.dev === 'phone'){
-      L.push(`מחברים את מתאם ה-USB-C לחיבור בתחתית המקלט, ומכניסים לטלפון.`);
-    } else if (s.dev === 'lightning'){
-      L.push(`מחברים את מתאם ה-Lightning למקלט ומכניסים לאייפון. המתאם הזה לא בקופסה, הוא נמכר בנפרד.<span class="note">אין מתאם? מחברים משדר ישירות ב-Bluetooth: 2 שניות על Link עד הבהוב כחול וירוק, ובהגדרות ה-Bluetooth של האייפון בוחרים <span class="ltr">DJI Mic Mini-XXXXXX</span>. ${LED('blue')} כחול קבוע = מחובר.</span>`);
-    } else if (s.dev === 'camera'){
-      L.push(`מצמידים את המקלט לנעל של המצלמה עם הקליפס, ומחברים את כבל ה-3.5 מ״מ מהמקלט לכניסת המיקרופון של המצלמה.<span class="note">מעכשיו המקלט נדלק ונכבה יחד עם המצלמה.</span>`);
-    } else if (s.dev === 'computer'){
-      L.push(`מחברים את המקלט למחשב בכבל ה-USB-C.`);
-      L.push(`בהגדרות הקול של המחשב, או בתוך האפליקציה (Zoom, OBS, Premiere), בוחרים את <span class="ltr">DJI Mic Mini</span> כמיקרופון. מדברים ובודקים שהמחוון זז.`);
-    }
-    L.push(two
-      ? `בודקים ששתי הנוריות, 1 ו-2, דולקות ${LED('green')} ירוק במקלט. שני המשדרים מחוברים.`
-      : `בודקים שנורית 1 (או 2) במקלט דולקת ${LED('green')} ירוק. המשדר מחובר.`);
-    if (s.who === 'one'){
-      L.push(`נורית המקלט צריכה להיות ${LED('green')} <b>ירוקה: Mono</b>. תכלת? לחיצה כפולה על Link במקלט.<span class="note">משדר אחד ב-Stereo = קול רק באוזן אחת.</span>`);
-    } else if (s.who === 'quick'){
-      L.push(`<b>Mono</b>: שני הקולות יחד, בשתי האוזניים, מוכן לעריכה בטלפון. נורית המקלט ${LED('green')} ירוקה. תכלת? לחיצה כפולה על Link במקלט.<span class="note">ב-Mono אי אפשר אחר כך להפריד בין הדוברים.</span>`);
-    } else {
-      L.push(`<b>Stereo</b>: כל דובר בערוץ משלו. נורית המקלט ${LED('cyan')} תכלת. ירוקה? לחיצה כפולה על Link במקלט.<span class="note">בעריכה מפצלים לשתי רצועות. <a href="#capcut">איך עושים את זה ב-CapCut</a>.</span>`);
-    }
-  }
-  if (osmo && s.who === 'desk'){
-    L.push(`הגדרות הקול של המשדרים (ערוצים, סינון רעשים) נמצאות באותו מסך <b>Wireless Microphone</b> ב-Osmo.`);
-  }
+  L.push(`מוציאים מהמארז ${two ? 'את שני המשדרים' : 'משדר אחד'} ואת המקלט. הם נדלקים לבד, וכבר מחוברים זה לזה מהמפעל.<span class="note">${LED('red')} נורית אדומה = פחות מ-10% סוללה. אז קודם להטעין.</span>`);
+  L.push(`מחברים את מתאם ה-USB-C למקלט, בקצה שליד נוריות 1 ו-2, ומכניסים לטלפון.<span class="note">הכיתוב MIC RX פונה אליכם, לצד של המסך.</span>`);
+  L.push(two
+    ? `בודקים ששתי הנוריות, 1 ו-2, דולקות ${LED('green')} ירוק. שני המשדרים מחוברים.`
+    : `בודקים שנורית 1 (או 2) דולקת ${LED('green')} ירוק. המשדר מחובר.`);
+  L.push(two
+    ? `<b>Stereo</b>: כל דובר בערוץ משלו. הנורית ליד MIC RX ${LED('cyan')} תכלת. ירוקה? לחיצה כפולה על Link במקלט.<span class="note">בעריכה במחשב מפרידים כל דובר לרצועה משלו, ב-CapCut או עם קלוד. <a href="#capcut">איך</a>.</span>`
+    : `<b>Mono</b>: הנורית ליד MIC RX ${LED('green')} ירוקה. תכלת? לחיצה כפולה על Link במקלט.<span class="note">משדר אחד ב-Stereo = קול רק באוזן אחת.</span>`);
   L.push(`מצמידים ${two ? 'כל משדר לדובר שלו' : 'את המשדר'} באמצע החזה העליון, בערך שתי כפות יד מתחת לסנטר.<span class="note">בחולצה דקה: המגנט מבפנים, המשדר מבחוץ.</span>`);
-  const ncWhere = osmo ? 'את הרמה בוחרים במסך של ה-Osmo.' : (s.dev === 'lightning' ? 'באפליקציית DJI Mimo בוחרים רמה. במשדר שמחובר ישירות ב-Bluetooth היא קבועה על Strong.' : 'באפליקציית DJI Mimo בוחרים רמה.');
   if (s.env === 'quiet'){
-    L.push(`בחדר שקט אפשר בלי סינון רעשים. יש מזגן או מאוורר? לחיצה קצרה על כפתור ההפעלה במשדר מדליקה סינון. ${LED('yellow')} נורית צהובה בצד = פעיל.<span class="note">רמה מומלצת: <b>Basic</b>. ${ncWhere}</span>`);
+    L.push(`בחדר שקט אפשר בלי סינון רעשים. יש מזגן או מאוורר? לחיצה קצרה על כפתור ההפעלה במשדר מדליקה סינון. ${LED('yellow')} נורית צהובה בצד = פעיל.<span class="note">רמה מומלצת: <b>Basic</b>. בוחרים אותה באפליקציית DJI Mimo.</span>`);
   } else if (s.env === 'out'){
-    L.push(`מלבישים ספוג רוח על ${two ? 'כל משדר' : 'המשדר'}. סינון הרעשים לא מחליף אותו.<span class="note">יש תנועה ברקע? לחיצה קצרה על כפתור ההפעלה במשדר מדליקה סינון רעשים (${LED('yellow')} נורית צהובה).</span>`);
+    L.push(`מלבישים ספוג רוח על ${two ? 'כל משדר' : 'המשדר'}. סינון הרעשים לא מחליף אותו.<span class="note">יש תנועה ברקע? לחיצה קצרה על כפתור ההפעלה במשדר מדליקה סינון רעשים (${LED('yellow')} נורית צהובה). ב-DJI Mimo אפשר להוסיף Low Cut נגד רעשים נמוכים.</span>`);
   } else {
-    L.push(`מדליקים סינון רעשים: לחיצה קצרה על כפתור ההפעלה במשדר. ${LED('yellow')} נורית צהובה בצד = פעיל.<span class="note">רמה מומלצת: <b>Strong</b>. ${ncWhere}</span>`);
+    L.push(`מדליקים סינון רעשים: לחיצה קצרה על כפתור ההפעלה במשדר. ${LED('yellow')} נורית צהובה בצד = פעיל.<span class="note">רמה מומלצת: <b>Strong</b>. בוחרים אותה באפליקציית DJI Mimo.${two ? '' : ' צעקות או מוזיקה חזקה? אפשר להדליק גם Safety Track.'}</span>`);
   }
-  if (s.dev === 'camera'){
-    L.push(`במצלמה מורידים את ה-gain של המיקרופון, ובמקלט מעלים את ה-gain בגלגלת. זו ההמלצה של DJI נגד עיוות.<span class="note">יש <a href="https://www.dji.com/mic-mini/downloads" target="_blank" rel="noopener">טבלת הגדרות לפי דגם מצלמה</a> בעמוד ההורדות של DJI.</span>`);
-  } else if (s.dev === 'phone' || s.dev === 'lightning'){
-    L.push(`לחיצה קצרה על Link במשדר מתחילה ועוצרת צילום, לפי DJI. לא כל אפליקציה מגיבה לזה, אז בודקים פעם אחת לפני.${s.dev === 'phone' ? '<span class="note">צילום ארוך או לייב: מחברים כבל טעינה למקלט, והטלפון נטען יחד איתו.</span>' : ''}`);
-  } else if (osmo){
-    L.push(`לחיצה קצרה על Link במשדר מתחילה ועוצרת צילום ב-Osmo.<span class="note">בחיבור ישיר הסוללה של המשדר מחזיקה כ-7 עד 8 שעות.</span>`);
-  }
-  L.push(`צילום בדיקה של 10 שניות: מדברים רגיל, ואז חזק. מקשיבים באוזניות. קול בשתי האוזניים ובלי עיוות? מצלמים.`);
+  L.push(`לחיצה קצרה על Link במשדר מתחילה ועוצרת צילום, לפי DJI. לא כל אפליקציה מגיבה לזה, אז בודקים פעם אחת לפני.<span class="note">צילום ארוך או לייב: מחברים כבל טעינה למקלט, והטלפון נטען יחד איתו.</span>`);
+  L.push(`צילום בדיקה של 10 שניות: מדברים רגיל, ואז חזק. מקשיבים באוזניות. ${two ? 'כל דובר נשמע בצד אחר? זה תקין ב-Stereo, מתקנים בעריכה.' : 'קול בשתי האוזניים ובלי עיוות? מצלמים.'}`);
   return L;
 }
 
 function badges(s){
-  const d = DEV[s.dev];
-  const out = [`<span class="badge">חיבור <b>${d.conn}</b></span>`];
-  if (s.dev === 'osmo') out.push(`<span class="badge">${LED('blue')}<b>DIRECT</b></span>`);
-  else if (s.who === 'desk') out.push(`<span class="badge">${LED('cyan')}<b>STEREO</b></span>`);
-  else out.push(`<span class="badge">${LED('green')}<b>MONO</b></span>`);
+  const two = s.who === 'two';
+  const out = [`<span class="badge">חיבור <b>USB-C</b></span>`];
+  out.push(two ? `<span class="badge">${LED('cyan')}<b>STEREO</b></span>` : `<span class="badge">${LED('green')}<b>MONO</b></span>`);
   out.push(`<span class="badge">סינון רעשים <b>${s.env === 'noisy' ? 'Strong' : s.env === 'quiet' ? 'Basic / כבוי' : 'לפי הצורך'}</b></span>`);
   if (s.env === 'out') out.push(`<span class="badge">ספוג רוח <b>כן</b></span>`);
-  out.push(`<span class="badge">משדרים <b>${s.who === 'one' ? '1' : '2'}</b></span>`);
+  out.push(`<span class="badge">משדרים <b>${two ? '2' : '1'}</b></span>`);
   return out.join('');
 }
 
-let checks = store.get('checks', {});
-function key(s){ return `${s.dev}-${s.who}-${s.env}`; }
+let checks = store.get('checks2', {});
+function key(s){ return `${s.who}-${s.env}`; }
 function renderWiz(){
   const s = state();
-  store.set('wiz', s);
-  const d = DEV[s.dev];
-  const img = $('#w-img');
-  if (img.getAttribute('src') !== d.img){ img.src = d.img; img.width = d.w; img.height = d.h; }
-  $('#w-banner').classList.toggle('cut', !!d.cut);
-  $('#w-cap').textContent = d.label + (s.who === 'one' ? ' · דובר אחד' : ' · שני דוברים');
+  store.set('wiz2', s);
+  $('#w-cap').textContent = 'טלפון USB-C · ' + (s.who === 'two' ? 'שני דוברים' : 'דובר אחד');
   $('#w-badges').innerHTML = badges(s);
   const steps = buildSteps(s);
   const k = key(s), done = checks[k] || [];
@@ -1014,10 +1068,9 @@ $('#w-steps').addEventListener('change', e => {
   if (!e.target.matches('input')) return;
   const k = key(state());
   checks[k] = $$('#w-steps input').filter(x => x.checked).map(x => +x.dataset.i);
-  store.set('checks', checks); count();
+  store.set('checks2', checks); count();
 });
-$('#w-steps').addEventListener('click', e => { if (e.target.closest('a')) e.stopPropagation(); });
-$('#w-reset').addEventListener('click', () => { delete checks[key(state())]; store.set('checks', checks); renderWiz(); });
+$('#w-reset').addEventListener('click', () => { delete checks[key(state())]; store.set('checks2', checks); renderWiz(); });
 renderWiz();
 
 /* ================= parts ================= */
@@ -1027,7 +1080,7 @@ const PARTS = {
     img:'img/tx.webp', w:1100, h:1078, alt:'המשדר של DJI Mic Mini מלפנים',
     pins:[
       {x:6.5,y:15, name:'נורית מצב', where:'בצד, למעלה', text:'ירוק: מחובר למקלט. כחול: מחובר ב-Bluetooth. כחול וירוק לסירוגין: מחפש חיבור. אדום: פחות מ-10% סוללה.', acts:[]},
-      {x:2.8,y:37, name:'כפתור Link', where:'בצד, הכפתור הארוך', text:'צימוד, ושליטה בצילום כשמחוברים ל-Osmo או לטלפון.', acts:[A('2 ש׳','צימוד'), A('לחיצה','התחלה / עצירה של צילום')]},
+      {x:2.8,y:37, name:'כפתור Link', where:'בצד, הכפתור הארוך', text:'צימוד, ושליטה בצילום כשהמקלט מחובר לטלפון.', acts:[A('2 ש׳','צימוד'), A('לחיצה','התחלה / עצירה של צילום')]},
       {x:3.2,y:68, name:'כפתור הפעלה', where:'בצד, הכפתור הקצר', text:'הדלקה, כיבוי וסינון רעשים.', acts:[A('2 ש׳','הדלקה / כיבוי'), A('לחיצה','סינון רעשים')]},
       {x:93.5,y:15, name:'נורית סינון רעשים', where:'בצד השני', text:'צהוב: סינון רעשים פעיל. כבויה: הסינון כבוי.', acts:[]}
     ],
@@ -1038,11 +1091,11 @@ const PARTS = {
     pins:[
       {x:6,y:22, name:'גלגלת', where:'בפינה', text:'מסובבים כדי לכוון את ה-gain של המקלט.', acts:[A('סיבוב','gain')]},
       {x:79.6,y:15, name:'נוריות 1 ו-2', where:'למעלה', text:'נורית לכל משדר. ירוק: מחובר. כבויה: לא מחובר. מהבהבת מהר: צימוד. צהוב: סינון רעשים פעיל במשדר. אדום: הסוללה שלו נגמרת.', acts:[]},
-      {x:8.8,y:68, name:'כפתור הפעלה', where:'בצד', text:'הדלקה וכיבוי. במצלמה המקלט נדלק ונכבה יחד איתה.', acts:[A('2 ש׳','הדלקה / כיבוי'), A('6 ש׳ כשכבוי','Bluetooth ל-DJI Mimo, אייפון')]},
-      {x:97.5,y:59, name:'כפתור Link ויציאת 3.5 מ״מ', where:'בצד השני', text:'מכאן עוברים בין Mono ל-Stereo. יציאת ה-3.5 היא לכבל של המצלמה.', acts:[A('לחיצה כפולה','Mono / Stereo'), A('2 ש׳','צימוד')]},
-      {x:53,y:92, name:'חיבורים בתחתית', where:'למטה', text:'חיבור למתאם הטלפון (מתחת לכיסוי הקטן), ויציאת USB-C למחשב ולטעינה.', acts:[]}
+      {x:8.8,y:68, name:'כפתור הפעלה', where:'בצד', text:'הדלקה וכיבוי.', acts:[A('2 ש׳','הדלקה / כיבוי'), A('6 ש׳ כשכבוי','Bluetooth לעדכון קושחה באייפון')]},
+      {x:97.5,y:59, name:'כפתור Link ויציאת 3.5 מ״מ', where:'בצד השני', text:'מכאן עוברים בין Mono ל-Stereo. ליד הכפתור יש יציאת 3.5 מ״מ למצלמה, שלא צריך כשמצלמים בטלפון.', acts:[A('לחיצה כפולה','Mono / Stereo'), A('2 ש׳','צימוד')]},
+      {x:45,y:4, name:'חיבורים', where:'בקצה של נוריות 1 ו-2', text:'כאן נכנס מתאם ה-USB-C לטלפון (מתחת לכיסוי הקטן), ולידו יציאת USB-C לטעינה.', acts:[]}
     ],
-    note:'נורית המצב של המקלט: ירוק = Mono או Safety Track, תכלת = Stereo, מהבהבת = אין מכשיר מקליט מחובר. בגב יש קליפס לנעל המצלמה.'
+    note:'נורית המצב של המקלט נמצאת בצד השני, ליד הכיתוב MIC RX: ירוק = Mono, תכלת = Stereo. רואים אותה דולקת בחלק של הנורות. בגב יש קליפס.'
   },
   case: {
     img:'img/case.webp', w:1100, h:697, alt:'מארז הטעינה של DJI Mic Mini מלפנים',
@@ -1097,21 +1150,51 @@ document.addEventListener('click', e => {
 });
 renderParts();
 
-/* ================= led filter ================= */
-$('.filter').addEventListener('click', e => {
-  const b = e.target.closest('button'); if (!b) return;
+/* ================= led viewer ================= */
+const NAMES = {tx:'משדר · נורית המצב', rx1:'מקלט · נורית 1 (משדר 1, נורית 2 זהה למשדר 2)', rxs:'מקלט · הנורית ליד MIC RX', none:'משדר · נורית סינון הרעשים', case:'מארז · נוריות הסוללה'};
+function showLed(row){
+  $$('.ledcard .row').forEach(r => r.setAttribute('aria-pressed', r === row ? 'true' : 'false'));
+  const isCase = row.classList.contains('case');
+  $('#scene-main').hidden = isCase; $('#scene-case').hidden = !isCase;
+  $$('.vled').forEach(v => { const b = v.firstElementChild; b.className = ''; b.style.removeProperty('--c'); b.style.removeProperty('--c2'); v.classList.remove('lit'); });
+  let name;
+  if (isCase){
+    const st = row.dataset.dots.split(',');
+    $$('#scene-case .vled').forEach((v, i) => { if (st[i]){ v.classList.add('lit'); v.firstElementChild.className = st[i] === 'blink' ? 'slow' : ''; v.firstElementChild.style.setProperty('--c', 'var(--led-green)'); } });
+    name = NAMES.case;
+  } else {
+    const id = row.dataset.led, c = row.dataset.c, p = row.dataset.p;
+    const v = $(`#scene-main .vled[data-led="${id}"]`);
+    if (v && c !== 'off'){
+      v.classList.add('lit');
+      v.firstElementChild.className = p === 'solid' ? '' : p;
+      v.firstElementChild.style.setProperty('--c', `var(--led-${c})`);
+      if (row.dataset.c2) v.firstElementChild.style.setProperty('--c2', `var(--led-${row.dataset.c2})`);
+    }
+    name = NAMES[id];
+    $('#scene-main').dataset.focus = id.startsWith('rx') ? 'rx' : 'tx';
+  }
+  const what = row.querySelector('.what').textContent, means = row.querySelector('.means').innerHTML;
+  $('#vcap').innerHTML = `<b>${name}</b><span>${what}: ${means}</span>${row.dataset.note ? `<em>${row.dataset.note}</em>` : ''}`;
+}
+$('.ledside').addEventListener('click', e => {
+  const row = e.target.closest('.row');
+  if (row){ showLed(row); return; }
+  const b = e.target.closest('.filter button'); if (!b) return;
   $$('.filter button').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
-  $$('.ledcard').forEach(c => c.hidden = !(b.dataset.f === 'all' || c.dataset.dev === b.dataset.f));
+  $$('.ledcard').forEach(c => c.hidden = c.dataset.dev !== b.dataset.f);
+  showLed($(`.ledcard[data-dev="${b.dataset.f}"] .row`));
 });
+showLed($('.ledcard[data-dev="tx"] .row'));
 
 /* ================= sound lab ================= */
 const MODES = {
   mono:   {m:[.7,.7,.7,.7], led:'green', title:'Mono', text:'שני המשדרים מתערבבים לערוץ אחד, ושומעים את שניהם בשתי האוזניים. אחרי הצילום כבר אי אפשר להפריד ביניהם.',
-           when:'דובר אחד. או שניים, כשעורכים מהר בטלפון.', how:'לחיצה כפולה על Link במקלט, עד שהנורית ירוקה.'},
+           when:'דובר אחד. או שניים, כשלא צריך לאזן ביניהם בעריכה.', how:'לחיצה כפולה על Link במקלט, עד שהנורית ירוקה.'},
   stereo: {m:[1,0,0,1], led:'cyan', title:'Stereo', text:'משדר 1 נכנס לערוץ השמאלי ומשדר 2 לימני. כל דובר נשאר נפרד, אבל בלי עריכה כל אחד נשמע באוזן אחרת.',
-           when:'ראיון עם שני דוברים, כשעורכים במחשב ורוצים לשלוט בכל אחד.', how:'לחיצה כפולה על Link במקלט, עד שהנורית תכלת.'},
+           when:'שני דוברים. בעריכה במחשב מפרידים כל אחד לרצועה משלו.', how:'לחיצה כפולה על Link במקלט, עד שהנורית תכלת.'},
   safety: {m:[.7,.35,.7,.35], led:'green', title:'Safety Track', text:'ערוץ אחד בעוצמה רגילה, ובשני עותק חלש יותר ב-6dB. אם מישהו צועק פתאום והערוץ הרגיל מתעוות, העותק השקט מציל את הקטע.',
-           when:'אירוע, הופעה, ספורט: כשהעוצמה קופצת. לא מפריד בין דוברים.', how:'בוחרים באפליקציית DJI Mimo (הלחיצה הכפולה מחליפה רק בין Mono ל-Stereo). הנורית ירוקה, כמו ב-Mono. בעריכה בוחרים באחד הערוצים.'}
+           when:'אירוע, הופעה, ספורט: כשהעוצמה קופצת. לא מפריד בין דוברים.', how:'מדליקים Safety Track באפליקציית DJI Mimo. עובד רק במצב Mono, אז הנורית ירוקה. בעריכה בוחרים באחד הערוצים.'}
 };
 let mode = 'stereo', tx2 = true, ctx = null, voices = [], an = [], playing = false, timer = 0, raf = 0, next = 0, turn = 0;
 
@@ -1249,6 +1332,15 @@ $('.side').addEventListener('click', e => {
   $('#cc-opt').textContent = opt; $('#cc-sel').textContent = opt;
   $('#cc-why').textContent = left ? 'הצד השמאלי, שבו יש קול, מועתק גם לימין.' : 'הצד הימני, שבו יש קול, מועתק גם לשמאל.';
 });
+
+/* ================= copy prompts ================= */
+$$('.copy').forEach(b => b.addEventListener('click', async () => {
+  const el = document.getElementById(b.dataset.copy);
+  try { await navigator.clipboard.writeText(el.textContent.trim()); b.textContent = 'הועתק'; }
+  catch (e) { const r = document.createRange(); r.selectNodeContents(el); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); b.textContent = 'מסומן, Ctrl+C'; }
+  b.classList.add('done');
+  setTimeout(() => { b.textContent = 'העתקה'; b.classList.remove('done'); }, 2200);
+}));
 
 /* ================= troubleshooting search ================= */
 const q = $('#q'), items = $$('#faq details');
